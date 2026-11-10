@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   var stack = document.getElementById('hero-stack');
-  var btn = document.getElementById('hero-pause');
   if (!stack) return;
   var cards = Array.prototype.slice.call(stack.querySelectorAll('.hero-card'));
   if (cards.length < 2) return;
@@ -42,15 +41,11 @@
   stack.addEventListener('click', function () { next(); schedule(); });
   stack.addEventListener('mouseenter', function () { hovering = true; schedule(); });
   stack.addEventListener('mouseleave', function () { hovering = false; schedule(); });
+  stack.addEventListener('focusin', function () { hovering = true; schedule(); });
+  stack.addEventListener('focusout', function () { hovering = false; schedule(); });
   document.addEventListener('visibilitychange', schedule);
 
-  function syncBtn() {
-    btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    btn.setAttribute('aria-label', paused ? 'เล่นภาพต่อ' : 'หยุดเลื่อนภาพ');
-  }
-  if (btn) btn.addEventListener('click', function () { paused = !paused; syncBtn(); if (!paused) next(); schedule(); });
 
   layout();
-  if (btn) syncBtn();
   schedule();
 })();
