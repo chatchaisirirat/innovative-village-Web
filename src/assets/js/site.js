@@ -19,6 +19,19 @@
     });
   }
 
+  /* photo decks: tap (touch) or Enter/Space (keyboard) fans the cards out */
+  document.querySelectorAll('.deck').forEach(function (deck) {
+    deck.addEventListener('click', function () { deck.classList.toggle('fan'); });
+    deck.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); deck.classList.toggle('fan'); }
+    });
+    deck.addEventListener('mouseleave', function () { deck.classList.remove('fan'); });
+    deck.addEventListener('blur', function () { deck.classList.remove('fan'); });
+  });
+  document.addEventListener('click', function (e) {
+    document.querySelectorAll('.deck.fan').forEach(function (d) { if (!d.contains(e.target)) d.classList.remove('fan'); });
+  });
+
   /* links waiting for real URLs (e.g. partner websites) */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[aria-disabled="true"]');
