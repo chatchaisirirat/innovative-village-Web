@@ -1,4 +1,4 @@
-<!--{"title": "Innovative Village — The Ecosystem of Innovator | Chiang Mai", "active": "home"}-->
+<!--{"title": "Innovative Village — The Ecosystem of Innovator | Chiang Mai", "active": "home", "script": "hero.js"}-->
 
 <!-- HERO -->
 <section class="hero">
@@ -20,8 +20,17 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-block" aria-hidden="true"></div>
-      <img class="hero-img" src="assets/img/hero-aerial.jpg" alt="ภาพมุมสูง Innovative Village ยามเย็น — บ้านไม้หลังคาเทารอบบ่อน้ำ ท่ามกลางต้นไม้ ข้างถนนสมโภชเชียงใหม่ 700 ปี และหลังคาโซลาร์เซลล์ริมที่จอดรถ" width="1477" height="1108" fetchpriority="high">
+      <div class="hero-stack" id="hero-stack" role="group" aria-roledescription="carousel" aria-label="ภาพบรรยากาศ Innovative Village">
+        <img class="hero-card" src="assets/img/hero-aerial.jpg" alt="ภาพมุมสูง Innovative Village ยามเย็น — บ้านไม้หลังคาเทารอบบ่อน้ำ ท่ามกลางต้นไม้ ข้างถนนสมโภชเชียงใหม่ 700 ปี และหลังคาโซลาร์เซลล์ริมที่จอดรถ" width="1200" height="900" data-pos="0" fetchpriority="high">
+        <img class="hero-card" src="assets/img/hero-cafe.jpg" alt="Café de Innova อาคารไม้สองชั้นริมบ่อน้ำ มีเก้าอี้สีขาววางบนสนามหญ้า" width="1200" height="900" data-pos="1" decoding="async">
+        <img class="hero-card" src="assets/img/hero-garden.jpg" alt="เก้าอี้ชิงช้าทรงไข่และโต๊ะไม้ในสวนริมลำธาร ใต้ต้นหลิว" width="1200" height="900" data-pos="2" decoding="async">
+        <img class="hero-card" src="assets/img/hero-pond.jpg" alt="บ้านไม้ริมบ่อน้ำ ใต้ต้นหลิว ในบรรยากาศร่มรื่น" width="1200" height="900" data-pos="3" decoding="async">
+        <img class="hero-card" src="assets/img/hero-team.jpg" alt="ทีมงานและนักศึกษาถ่ายรูปหมู่หน้าอาคาร Innovative Village" width="1200" height="900" data-pos="4" decoding="async">
+      </div>
+      <button class="hero-pause" id="hero-pause" type="button" aria-pressed="false" aria-label="หยุดเลื่อนภาพ">
+        <svg class="i-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2h3v10H3zM8 2h3v10H8z" fill="currentColor"></path></svg>
+        <svg class="i-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l9 5.5-9 5.5z" fill="currentColor"></path></svg>
+      </button>
       <div class="hero-tags">
         <div class="hero-tag"><b>Office for Rent</b><br>เริ่ม 3,500 บาท / เดือน</div>
         <div class="hero-tag"><b>Meeting Room</b><br>เริ่ม 150 บาท / ชั่วโมง</div>
