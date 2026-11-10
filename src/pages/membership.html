@@ -1,0 +1,200 @@
+<!--{"title": "Coworking Membership — สมัครสมาชิก Cowork | Innovative Village", "active": "spaces", "desc": "สมัครสมาชิก Coworking ที่ Innovative Village เชียงใหม่ — Day Pass, Flex และรายเดือน ทำงานท่ามกลางต้นไม้ พร้อมคาเฟ่และห้องประชุม", "script": "membership.js"}-->
+
+<!-- PAGE HEAD -->
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">COWORKING MEMBERSHIP</p>
+    <h1 class="h1">WORK IN THE VILLAGE</h1>
+    <p class="sub lg">{ สมัครสมาชิก Coworking — ทำงานท่ามกลางต้นไม้ กับชุมชนคนนักคิด }</p>
+    <nav class="jump" aria-label="ไปยังส่วนต่างๆ">
+      <a href="#plans">แพ็กเกจ</a>
+      <a href="#benefits">สิทธิ์ของสมาชิก</a>
+      <a href="#how">ขั้นตอน</a>
+      <a href="#faq">คำถามที่พบบ่อย</a>
+      <a class="dark" href="#apply">สมัครสมาชิก</a>
+    </nav>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans" style="padding:80px 0">
+  <div class="container stack" style="gap:36px">
+    <div class="head-row">
+      <div class="head" style="gap:10px">
+        <h2 class="h2" style="font-size:clamp(28px,3.2vw,42px)">CHOOSE YOUR PLAN</h2>
+        <p class="sub">{ เลือกแพ็กเกจที่เหมาะกับการทำงานของคุณ }</p>
+      </div>
+      <p class="body th" style="max-width:440px;margin:0;font-weight:300">ใช้พื้นที่ Co-work ได้ทุกแพ็กเกจ · ทีมหรือบริษัทที่ต้องการหลายที่นั่ง <a href="contact.html?topic=cowork">ติดต่อทีม IV</a></p>
+    </div>
+
+    <div class="grid g-250" id="plan-cards">
+      <article class="plan" data-plan="day">
+        <p class="plan-tag">ลองก่อน</p>
+        <h3>DAY PASS</h3>
+        <p class="plan-price"><b>[—]</b> บาท / วัน</p>
+        <ul class="plan-list">
+          <li>ใช้พื้นที่ Co-work 1 วัน ([เวลาเปิด–ปิด])</li>
+          <li>Wi-Fi ความเร็วสูง</li>
+          <li>เครื่องดื่ม [—] แก้ว ที่ Café</li>
+        </ul>
+        <button class="btn btn-outline btn-sm" type="button" data-pick="day">เลือก Day Pass</button>
+      </article>
+
+      <article class="plan" data-plan="flex">
+        <p class="plan-tag">ไม่ต้องมาทุกวัน</p>
+        <h3>FLEX 10</h3>
+        <p class="plan-price"><b>[—]</b> บาท / 10 วัน</p>
+        <ul class="plan-list">
+          <li>ใช้ได้ 10 วัน ภายใน [—] วัน</li>
+          <li>Wi-Fi ความเร็วสูง</li>
+          <li>ส่วนลดห้องประชุม [—]%</li>
+        </ul>
+        <button class="btn btn-outline btn-sm" type="button" data-pick="flex">เลือก Flex 10</button>
+      </article>
+
+      <article class="plan featured" data-plan="monthly">
+        <p class="plan-tag">ยอดนิยม</p>
+        <h3>MONTHLY</h3>
+        <p class="plan-price"><b>[—]</b> บาท / เดือน</p>
+        <ul class="plan-list">
+          <li>ใช้ได้ทุกวันทำการ ที่นั่งไม่ประจำ (Hot desk)</li>
+          <li>ชั่วโมงห้องประชุมฟรี [—] ชม. / เดือน</li>
+          <li>ร่วมกิจกรรม Community ของ Village</li>
+          <li>ขอเปิดประตูนอกเวลาได้</li>
+        </ul>
+        <button class="btn btn-lime btn-sm" type="button" data-pick="monthly">เลือก Monthly</button>
+      </article>
+
+      <article class="plan" data-plan="fixed">
+        <p class="plan-tag">ที่นั่งของคุณเอง</p>
+        <h3>FIXED DESK</h3>
+        <p class="plan-price"><b>[—]</b> บาท / เดือน</p>
+        <ul class="plan-list">
+          <li>ทุกอย่างใน Monthly</li>
+          <li>โต๊ะประจำ + ล็อกเกอร์</li>
+          <li>ใช้ที่อยู่ IV รับพัสดุ / จดทะเบียน [—]</li>
+        </ul>
+        <button class="btn btn-outline btn-sm" type="button" data-pick="fixed">เลือก Fixed Desk</button>
+      </article>
+    </div>
+    <p class="th" style="margin:0;font-size:14px;font-weight:300;color:var(--muted)">ชื่อแพ็กเกจ ราคา และสิทธิ์ทั้งหมดเป็นตัวอย่าง — ปรับให้ตรงกับเงื่อนไขจริงของ Innovative Village</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="bg-light" style="padding:80px 0">
+  <div class="container stack" style="gap:36px">
+    <div class="head" style="gap:10px">
+      <h2 class="h2" style="font-size:clamp(28px,3.2vw,42px)">MEMBER BENEFITS</h2>
+      <p class="sub dark">{ สิ่งที่สมาชิกได้รับ }</p>
+    </div>
+    <div class="grid g-240 benefit-grid">
+      <div class="benefit"><b>Wi-Fi &amp; ปลั๊กทุกที่นั่ง</b><span>อินเทอร์เน็ตความเร็ว [—] Mbps</span></div>
+      <div class="benefit"><b>Café &amp; Canteen</b><span>ส่วนลดสมาชิก [—]% ที่ Café ชั้น 1 และ Canteen</span></div>
+      <div class="benefit"><b>ห้องประชุม</b><span>จองได้ในราคาสมาชิก บางแพ็กเกจมีชั่วโมงฟรี</span></div>
+      <div class="benefit"><b>Community</b><span>กิจกรรม Workshop และ Networking กับ Villagers</span></div>
+      <div class="benefit"><b>Facilities</b><span>Library, Outdoor (A3–A4), Parking, Minimart</span></div>
+      <div class="benefit"><b>บริการสมาชิก</b><span>ขอเปิดประตูนอกเวลา แจ้งปัญหา ขอทำความสะอาด และขอใบเสร็จได้ทางออนไลน์</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding:80px 0">
+  <div class="container stack" style="gap:36px">
+    <div class="head" style="gap:10px">
+      <h2 class="h2" style="font-size:clamp(28px,3.2vw,42px)">HOW TO JOIN</h2>
+      <p class="sub">{ ขั้นตอนการสมัคร }</p>
+    </div>
+    <ol class="join-steps">
+      <li><span class="num">1</span><b>เลือกแพ็กเกจ</b><span>และวันที่ต้องการเริ่มใช้งาน</span></li>
+      <li><span class="num">2</span><b>กรอกข้อมูลสมาชิก</b><span>ทีม IV ได้รับแจ้งทาง LINE และ Email ทันที</span></li>
+      <li><span class="num">3</span><b>ยืนยัน &amp; ชำระเงิน</b><span>ทีมติดต่อกลับพร้อมช่องทางชำระเงิน [รอข้อมูล]</span></li>
+      <li><span class="num">4</span><b>เช็คอินผ่าน Tams</b><span>รับบัญชีสำหรับเช็คอินเข้าพื้นที่ [รายละเอียดระบบ]</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply" class="bg-light" style="padding:80px 0">
+  <div class="container">
+    <div class="book-wrap">
+      <div class="book-main" aria-live="polite">
+        <form class="contact-form" id="member-form" novalidate style="background:var(--white)">
+          <h2>สมัครสมาชิก Coworking</h2>
+          <div class="form-grid">
+            <label class="field">แพ็กเกจ
+              <select name="plan" id="plan" required>
+                <option value="">— เลือกแพ็กเกจ —</option>
+                <option value="day">Day Pass</option>
+                <option value="flex">Flex 10</option>
+                <option value="monthly">Monthly</option>
+                <option value="fixed">Fixed Desk</option>
+              </select><span class="err" aria-live="polite"></span>
+            </label>
+            <label class="field">วันที่เริ่มใช้งาน <input type="date" name="start" id="start" required><span class="err" aria-live="polite"></span></label>
+            <label class="field">ชื่อ-นามสกุล <input type="text" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></label>
+            <label class="field">เบอร์โทร <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+\-\s]{9,15}" required><span class="err" aria-live="polite"></span></label>
+            <label class="field">อีเมล <input type="email" name="email" autocomplete="email" required><span class="err" aria-live="polite"></span></label>
+            <label class="field">LINE ID <input type="text" name="line"></label>
+            <label class="field">บริษัท / อาชีพ <input type="text" name="org" autocomplete="organization"></label>
+            <label class="field">จำนวนสมาชิก <input type="number" name="seats" min="1" max="50" value="1" inputmode="numeric"></label>
+          </div>
+          <label class="check"><input type="checkbox" name="invoice" id="invoice"> ต้องการใบกำกับภาษี</label>
+          <div class="form-grid" id="invoice-fields" hidden>
+            <label class="field">ชื่อบริษัท / ผู้เสียภาษี <input type="text" name="taxName"><span class="err" aria-live="polite"></span></label>
+            <label class="field">เลขประจำตัวผู้เสียภาษี <input type="text" name="taxId" inputmode="numeric" pattern="[0-9]{13}"><span class="err" aria-live="polite"></span></label>
+            <label class="field" style="grid-column:1/-1">ที่อยู่ออกใบกำกับ <textarea name="taxAddress" rows="2"></textarea><span class="err" aria-live="polite"></span></label>
+          </div>
+          <label class="field">หมายเหตุ <textarea name="note" rows="3" placeholder="เช่น ต้องการโต๊ะติดหน้าต่าง, มาเป็นทีม"></textarea></label>
+          <label class="field check-field"><span class="check"><input type="checkbox" name="agree" id="agree" required> ยอมรับ <a href="#faq">กติกาการใช้พื้นที่</a></span><span class="err" aria-live="polite"></span></label>
+          <p class="form-note">ยังไม่ต้องชำระเงินตอนนี้ — ทีม IV จะติดต่อกลับเพื่อยืนยันและแจ้งช่องทางชำระเงินภายใน [ระยะเวลา]</p>
+          <button class="btn btn-dark" type="submit" style="align-self:flex-start;padding:0 32px">ส่งใบสมัคร</button>
+        </form>
+
+        <div class="success" id="member-done" hidden tabindex="-1">
+          <svg width="56" height="40" viewBox="0 0 56 40" fill="none" aria-hidden="true"><path d="M3 38 L9 14 L28 3 L47 14 L53 38" stroke="#bcd732" stroke-width="6"></path></svg>
+          <h2>ส่งใบสมัครแล้ว</h2>
+          <p>ทีม IV ได้รับแจ้งทาง LINE และ Email แล้ว และจะติดต่อกลับเพื่อยืนยันการสมัครและการชำระเงิน</p>
+          <p class="meta" id="member-summary"></p>
+          <p class="meta" id="member-ref"></p>
+          <button class="btn btn-ghost-lime" type="button" id="member-again" style="align-self:flex-start">สมัครใหม่</button>
+        </div>
+      </div>
+
+      <aside class="book-side">
+        <div class="side-box" id="plan-summary" style="background:var(--white)">
+          <h2>YOUR PLAN</h2>
+          <p style="margin:0;font-size:22px;font-weight:500" id="ps-name">ยังไม่ได้เลือก</p>
+          <p style="margin:0;font-size:16px;font-weight:300" id="ps-price">เลือกแพ็กเกจจากด้านบน หรือในฟอร์ม</p>
+        </div>
+        <div class="side-line">
+          <h2 style="margin-bottom:4px">NEED HELP?</h2>
+          <a href="tel:0947500500" style="font-weight:500">094-750-0500</a>
+          <a href="mailto:info@innovativevillage.com">info@innovativevillage.com</a>
+          <a href="https://lin.ee/QlYCKjI" target="_blank" rel="noopener">LINE Official</a>
+        </div>
+        <a class="side-link" href="digital-twin.html?filter=cowork">ดูห้อง Cowork บน Digital Twin
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#bcd732" stroke-width="2"></path></svg>
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:80px 0">
+  <div class="container stack" style="gap:28px;max-width:880px">
+    <div class="head" style="gap:10px">
+      <h2 class="h2" style="font-size:clamp(28px,3.2vw,42px)">FAQ</h2>
+      <p class="sub">{ คำถามที่พบบ่อย และกติกาการใช้พื้นที่ }</p>
+    </div>
+    <div class="faq">
+      <details><summary>Co-work เปิดกี่โมงถึงกี่โมง?</summary><p>[วัน / เวลาทำการ] — สมาชิกรายเดือนขอเปิดประตูนอกเวลาได้ผ่านระบบสมาชิก</p></details>
+      <details><summary>ลองใช้ก่อนสมัครรายเดือนได้ไหม?</summary><p>ได้ เลือก Day Pass หรือ <a href="booking.html?tab=visit">นัดดูพื้นที่</a> ก่อนได้</p></details>
+      <details><summary>เช็คอินเข้าพื้นที่อย่างไร?</summary><p>หลังชำระเงิน ทีม IV จะส่งบัญชีสำหรับเช็คอินผ่านระบบ Tams ให้ [รายละเอียดขั้นตอน]</p></details>
+      <details><summary>ต่ออายุ / ยกเลิกสมาชิกอย่างไร?</summary><p>[เงื่อนไขการต่ออายุ การยกเลิก และการคืนเงิน]</p></details>
+      <details><summary>กติกาการใช้พื้นที่มีอะไรบ้าง?</summary><p>[กติกา เช่น เสียงในพื้นที่ การจองโต๊ะ การนำแขกเข้า อาหาร สัตว์เลี้ยง]</p></details>
+    </div>
+  </div>
+</section>
