@@ -1,0 +1,46 @@
+<!--{"title": "Digital Twin — ผังพื้นที่ Innovative Village", "active": "twin", "script": "digital-twin.js"}-->
+
+<div style="max-width:1280px;margin:0 auto;padding:56px 24px 96px;display:flex;flex-direction:column;gap:28px">
+
+  <div class="head-row" style="gap:16px 32px">
+    <div class="head">
+      <p class="eyebrow">DIGITAL TWIN</p>
+      <h1 class="h1" style="font-size:clamp(32px,4vw,52px);line-height:1.1">THE VILLAGE</h1>
+      <p class="sub">{ ผังออฟฟิศและพื้นที่ทั้งหมด — กดที่วงกลมบนผังเพื่อดูรายละเอียด }</p>
+    </div>
+    <div id="filters" role="group" aria-label="ไฮไลต์ตามประเภท" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div class="twin-wrap">
+    <!-- MAP -->
+    <div class="twin-map">
+      <div class="map" id="map">
+        <img src="assets/img/floorplan.jpg" alt="ผังออฟฟิศ Innovative Village: ยูนิต A, B, C, D รอบบ่อน้ำ ที่จอดรถด้านหน้า" width="1606" height="933">
+      </div>
+      <p class="th" style="margin:0;font-size:14px;font-weight:300;color:var(--muted)">วงสีบนผัง: ฟ้า Facility · เทา Tenant · ส้ม Cowork · เขียว Villager · เหลือง Common</p>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <aside class="panel" id="panel" aria-live="polite">
+      <div class="ph ph-b r-16-10" role="img" id="p-photo" aria-label="">[ภาพ]</div>
+      <div class="in">
+        <div class="stack" style="gap:6px">
+          <span class="cat"><span class="dot" id="p-dot" aria-hidden="true"></span><span id="p-cat"></span></span>
+          <h2 id="p-code"></h2>
+          <p class="t" id="p-title"></p>
+          <p class="n" id="p-note"></p>
+        </div>
+        <dl class="dl" id="p-dl"></dl>
+        <a class="btn btn-lime btn-md" id="p-cta" href="#" style="align-self:flex-start"></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- LIST VIEW -->
+  <section aria-label="รายการยูนิตทั้งหมด" class="th" style="display:flex;flex-direction:column;gap:20px;padding-top:24px;border-top:1px solid var(--light)">
+    <h2 class="eyebrow" style="font-family:var(--font-en)">ALL UNITS · ยูนิตทั้งหมด</h2>
+    <div id="groups" style="display:flex;flex-direction:column;gap:20px"></div>
+    <p style="margin:0;font-size:15px;font-weight:300;color:var(--muted)">ยังไม่ระบุตำแหน่งบนผัง: Café ชั้น 1 — Lounge · Café ชั้น 2 — Library</p>
+  </section>
+
+</div>

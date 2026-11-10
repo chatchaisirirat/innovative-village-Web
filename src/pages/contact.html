@@ -1,0 +1,62 @@
+<!--{"title": "ติดต่อเรา — Visit the Village | Innovative Village", "active": "contact", "script": "contact.js"}-->
+
+<div class="container" style="padding-top:64px;padding-bottom:96px;display:flex;flex-direction:column;gap:40px">
+
+  <div class="head" style="gap:16px">
+    <p class="eyebrow">CONTACT</p>
+    <h1 class="h1">VISIT THE VILLAGE</h1>
+    <p class="sub lg">{ ติดต่อเรา และนัดชมพื้นที่ }</p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="ph map-ph" role="img" aria-label="แผนที่ Innovative Village (ฝัง Google Maps ภายหลัง)">
+        <svg width="40" height="48" viewBox="0 0 40 48" fill="none" aria-hidden="true"><path d="M20 46s16-16 16-28A16 16 0 0 0 4 18c0 12 16 28 16 28z" fill="#bcd732" stroke="#35363a" stroke-width="2"></path><circle cx="20" cy="18" r="6" fill="#35363a"></circle></svg>
+        <span>[แผนที่ Google Maps]</span>
+      </div>
+      <a class="btn btn-dark btn-md" href="https://maps.app.goo.gl/pAtN5U9M9Ka26G7o9" target="_blank" rel="noopener" style="align-self:flex-start">เปิดเส้นทางใน Google Maps</a>
+      <dl class="contact-dl">
+        <dt>ที่อยู่</dt><dd>58/4 หมู่ 7 ถ.สมโภชเชียงใหม่ 700 ปี ต.ป่าแดด อ.เมือง จ.เชียงใหม่ 50100</dd>
+        <dt>โทร</dt><dd><a href="tel:0947500500">094-750-0500</a></dd>
+        <dt>อีเมล</dt><dd><a href="mailto:info@innovativevillage.com">info@innovativevillage.com</a></dd>
+        <dt>Facebook</dt><dd><a href="https://facebook.com/InnovativeVillageCNX" target="_blank" rel="noopener">InnovativeVillageCNX</a></dd>
+        <dt>LINE</dt><dd><a href="https://lin.ee/QlYCKjI" target="_blank" rel="noopener">LINE Official</a></dd>
+        <dt>เวลาทำการ</dt><dd>[วัน / เวลาทำการ]</dd>
+      </dl>
+    </div>
+
+    <div style="flex:1 1 480px;min-width:0" aria-live="polite">
+      <form class="contact-form" id="contact-form" novalidate>
+        <h2>นัดชมพื้นที่ / สอบถาม</h2>
+        <div class="form-grid">
+          <label class="field">ชื่อ-นามสกุล <input type="text" name="name" autocomplete="name" required><span class="err"></span></label>
+          <label class="field">เบอร์โทร <input type="tel" name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9+\-\s]{9,15}" required><span class="err"></span></label>
+          <label class="field">อีเมล <input type="email" name="email" autocomplete="email"><span class="err"></span></label>
+          <label class="field">สนใจเรื่อง
+            <select name="topic" id="topic">
+              <option value="office">Office for Rent</option>
+              <option value="meeting">Meeting Room</option>
+              <option value="cowork">Cowork</option>
+              <option value="partner">ร่วมเป็น Partner</option>
+              <option value="intern">ฝึกงาน</option>
+              <option value="other">อื่นๆ</option>
+            </select>
+          </label>
+          <label class="field">วันที่สะดวกเข้าชม <input type="date" name="date" id="visit-date"></label>
+          <label class="field">ช่วงเวลา <select name="slot"><option>ช่วงเช้า</option><option>ช่วงบ่าย</option></select></label>
+        </div>
+        <label class="field">ข้อความ <textarea name="message" rows="4"></textarea></label>
+        <p class="form-note">ทีม IV จะได้รับแจ้งทาง LINE และ Email ทันที และติดต่อกลับภายใน [ระยะเวลา]</p>
+        <button class="btn btn-lime" type="submit" style="align-self:flex-start;padding:0 32px">ส่งข้อความ</button>
+      </form>
+
+      <div class="success" id="contact-done" hidden tabindex="-1">
+        <svg width="56" height="40" viewBox="0 0 56 40" fill="none" aria-hidden="true"><path d="M3 38 L9 14 L28 3 L47 14 L53 38" stroke="#bcd732" stroke-width="6"></path></svg>
+        <h2>ส่งข้อความแล้ว</h2>
+        <p>ทีม IV ได้รับแจ้งทาง LINE และ Email แล้ว และจะติดต่อกลับภายใน [ระยะเวลา]</p>
+        <p class="meta" id="contact-ref"></p>
+        <button class="btn btn-ghost-lime" type="button" id="contact-again" style="align-self:flex-start">ส่งข้อความใหม่</button>
+      </div>
+    </div>
+  </div>
+</div>

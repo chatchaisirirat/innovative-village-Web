@@ -1,0 +1,95 @@
+<!--{"title": "ฝึกงาน — Grow with the Village | Innovative Village", "active": "interns", "script": "interns.js"}-->
+
+<section style="padding:64px 0 56px">
+  <div class="container head-row" style="gap:24px 48px">
+    <div class="head" style="gap:16px">
+      <p class="eyebrow">INTERNSHIP</p>
+      <h1 class="h1">GROW WITH THE VILLAGE</h1>
+      <p class="sub lg">{ น้องฝึกงาน }</p>
+    </div>
+    <a class="btn btn-lime" href="#apply">สมัครฝึกงาน</a>
+  </div>
+</section>
+
+<section class="bg-dark" aria-label="ตัวเลขสรุป">
+  <div class="container grid" style="padding-top:48px;padding-bottom:48px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px">
+    <div class="stat"><b>[—]</b><span>คนที่สมัครเข้ามา</span></div>
+    <div class="stat"><b>[—]</b><span>คนที่เคยฝึกงานกับเรา</span></div>
+    <div class="stat"><b>[—]</b><span>มหาวิทยาลัยที่เคยมาฝึกงาน</span></div>
+  </div>
+</section>
+
+<section style="padding:80px 0">
+  <div class="container stack" style="gap:36px">
+    <div class="head" style="gap:8px">
+      <h2 class="h2 sm">HOW TO APPLY</h2>
+      <p class="sub" style="font-size:19px">{ ขั้นตอนการสมัคร }</p>
+    </div>
+    <ol class="how">
+      <li><span class="n">01</span><span class="t">สมัคร</span><span class="d">กดปุ่มสมัครและเลือกช่วงเวลาที่ต้องการฝึกงาน</span></li>
+      <li><span class="n">02</span><span class="t">กรอกข้อมูล</span><span class="d">ข้อมูลส่วนตัว มหาวิทยาลัย สาขา และผลงาน</span></li>
+      <li><span class="n">03</span><span class="t">ตอบแบบสอบถามวัดลอจิก</span><span class="d">[จำนวนข้อ / เวลาที่ใช้]</span></li>
+      <li class="hl"><span class="n">04</span><span class="t">ส่งให้ทีมบริหาร</span><span class="d">ทีมบริหารพิจารณาและติดต่อกลับ [ภายในกี่วัน]</span></li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding:0 0 80px">
+  <div class="container stack" style="gap:20px">
+    <h2 class="th" style="margin:0;font-size:22px;font-weight:500">มหาวิทยาลัยที่เคยมาฝึกงาน</h2>
+    <div class="uni">
+      <span>[ชื่อมหาวิทยาลัย]</span><span>[ชื่อมหาวิทยาลัย]</span><span>[ชื่อมหาวิทยาลัย]</span><span>[ชื่อมหาวิทยาลัย]</span>
+    </div>
+  </div>
+</section>
+
+<section id="apply" class="bg-light" style="padding:80px 0">
+  <div class="container apply-wrap">
+    <div class="apply-copy">
+      <h2>APPLY</h2>
+      <p>{ สมัครฝึกงาน }</p>
+      <p class="s">หลังส่งข้อมูล ระบบจะพาไปทำแบบสอบถามวัดลอจิกต่อทันที</p>
+    </div>
+
+    <div class="apply-card" aria-live="polite">
+      <div class="mini-steps th" id="mini-steps" aria-hidden="true">
+        <span data-s="1">01 กรอกข้อมูล</span><span data-s="2">02 แบบสอบถามวัดลอจิก</span><span data-s="3">03 ส่งให้ทีมบริหาร</span>
+      </div>
+
+      <!-- STEP 1: FORM -->
+      <form class="apply-form" id="intern-form" novalidate>
+        <label class="field">ชื่อ-นามสกุล <input type="text" name="name" autocomplete="name" required><span class="err"></span></label>
+        <label class="field">อีเมล <input type="email" name="email" autocomplete="email" required><span class="err"></span></label>
+        <label class="field">มหาวิทยาลัย <input type="text" name="university" required><span class="err"></span></label>
+        <label class="field">สาขา / ชั้นปี <input type="text" name="major"><span class="err"></span></label>
+        <label class="field">เริ่มฝึกงาน <input type="date" name="start" id="d-start" required><span class="err"></span></label>
+        <label class="field">สิ้นสุด <input type="date" name="end" id="d-end" required><span class="err"></span></label>
+        <label class="field">ทีมที่สนใจ <select name="team"><option>ยังไม่แน่ใจ</option><option>[ทีม / บริษัทใน Village]</option></select></label>
+        <label class="field">ลิงก์ผลงาน / Portfolio <input type="url" name="portfolio" placeholder="https://"><span class="err"></span></label>
+        <div class="full" style="display:flex;justify-content:flex-end">
+          <button class="btn btn-dark" type="submit" style="padding:0 32px">ถัดไป: แบบสอบถามวัดลอจิก</button>
+        </div>
+      </form>
+
+      <!-- STEP 2: LOGIC QUIZ (content to be provided) -->
+      <div class="quiz-ph th" id="quiz" hidden tabindex="-1">
+        <h3 style="margin:0;font-size:24px;font-weight:500">แบบสอบถามวัดลอจิก</h3>
+        <p style="margin:0;font-size:16px;font-weight:300;line-height:1.7">[จำนวนข้อ / เวลาที่ใช้]</p>
+        <div class="ph" style="min-height:220px;flex-direction:column;gap:8px">[ชุดคำถามวัดลอจิก — รอเนื้อหาจริง]</div>
+        <div class="nav-row">
+          <button class="btn btn-outline" type="button" id="quiz-back" style="padding:0 24px">ย้อนกลับ</button>
+          <button class="btn btn-dark" type="button" id="quiz-submit" style="padding:0 32px">ส่งให้ทีมบริหาร</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: DONE -->
+      <div class="success" id="intern-done" hidden tabindex="-1">
+        <svg width="56" height="40" viewBox="0 0 56 40" fill="none" aria-hidden="true"><path d="M3 38 L9 14 L28 3 L47 14 L53 38" stroke="#bcd732" stroke-width="6"></path></svg>
+        <h3>ส่งใบสมัครแล้ว</h3>
+        <p>ทีมบริหารจะพิจารณาและติดต่อกลับ [ภายในกี่วัน]</p>
+        <p class="meta" id="intern-ref"></p>
+        <a class="btn btn-ghost-lime" href="activities.html" style="align-self:flex-start">ดูผลงาน &amp; กิจกรรมของ Village</a>
+      </div>
+    </div>
+  </div>
+</section>

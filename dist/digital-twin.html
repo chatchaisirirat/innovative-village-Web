@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Twin — ผังพื้นที่ Innovative Village</title>
+<meta name="description" content="Innovative Village — Software Park, Co-working Space, Cafe & Meeting Room ท่ามกลางต้นไม้ในเชียงใหม่">
+<meta property="og:title" content="Digital Twin — ผังพื้นที่ Innovative Village">
+<meta property="og:description" content="Innovative Village — Software Park, Co-working Space, Cafe & Meeting Room ท่ามกลางต้นไม้ในเชียงใหม่">
+<meta name="theme-color" content="#35363a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&amp;family=Raleway:wght@300;400;600;700&amp;display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+<header class="site-header">
+  <div class="topbar">
+    <div class="topbar-in">
+      <span class="topbar-tag">SOFTWARE PARK · CO-WORKING SPACE · CAFE &amp; MEETING ROOM</span>
+      <div class="topbar-links">
+        <a href="tel:0947500500">094-750-0500</a>
+        <a href="mailto:info@innovativevillage.com">info@innovativevillage.com</a>
+        <span class="lang">TH | EN</span>
+      </div>
+    </div>
+  </div>
+  <div class="mainbar">
+    <a class="brand" href="index.html" aria-label="Innovative Village หน้าแรก"><img src="assets/img/logo.jpg" alt="Innovative Village" width="148" height="52"></a>
+    <nav id="main-nav" class="nav" aria-label="เมนูหลัก">
+      <a href="index.html">หน้าแรก</a><a href="spaces.html">พื้นที่</a><a href="digital-twin.html" aria-current="page">Digital Twin</a><a href="partner.html">Partner</a><a href="interns.html">ฝึกงาน</a><a href="activities.html">ผลงาน &amp; กิจกรรม</a><a href="about.html">เกี่ยวกับเรา</a><a href="contact.html">ติดต่อ</a>
+    </nav>
+    <a class="header-cta" href="booking.html"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><path d="M1 13 L3 5 L9 1.5 L15 5 L17 13" stroke="#35363a" stroke-width="2.2"></path></svg><span class="cta-long">จองห้อง / นัดดูออฟฟิศ</span><span class="cta-short">จอง / นัดดู</span></a>
+    <button class="menu-btn" type="button" aria-label="เปิดเมนู" aria-controls="main-nav" aria-expanded="false">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true"><path d="M1 1h20M1 8h20M1 15h20" stroke="#35363a" stroke-width="2"></path></svg>
+    </button>
+  </div>
+</header>
+<main id="main">
+<div style="max-width:1280px;margin:0 auto;padding:56px 24px 96px;display:flex;flex-direction:column;gap:28px">
+
+  <div class="head-row" style="gap:16px 32px">
+    <div class="head">
+      <p class="eyebrow">DIGITAL TWIN</p>
+      <h1 class="h1" style="font-size:clamp(32px,4vw,52px);line-height:1.1">THE VILLAGE</h1>
+      <p class="sub">{ ผังออฟฟิศและพื้นที่ทั้งหมด — กดที่วงกลมบนผังเพื่อดูรายละเอียด }</p>
+    </div>
+    <div id="filters" role="group" aria-label="ไฮไลต์ตามประเภท" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  </div>
+
+  <div class="twin-wrap">
+    <!-- MAP -->
+    <div class="twin-map">
+      <div class="map" id="map">
+        <img src="assets/img/floorplan.jpg" alt="ผังออฟฟิศ Innovative Village: ยูนิต A, B, C, D รอบบ่อน้ำ ที่จอดรถด้านหน้า" width="1606" height="933">
+      </div>
+      <p class="th" style="margin:0;font-size:14px;font-weight:300;color:var(--muted)">วงสีบนผัง: ฟ้า Facility · เทา Tenant · ส้ม Cowork · เขียว Villager · เหลือง Common</p>
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <aside class="panel" id="panel" aria-live="polite">
+      <div class="ph ph-b r-16-10" role="img" id="p-photo" aria-label="">[ภาพ]</div>
+      <div class="in">
+        <div class="stack" style="gap:6px">
+          <span class="cat"><span class="dot" id="p-dot" aria-hidden="true"></span><span id="p-cat"></span></span>
+          <h2 id="p-code"></h2>
+          <p class="t" id="p-title"></p>
+          <p class="n" id="p-note"></p>
+        </div>
+        <dl class="dl" id="p-dl"></dl>
+        <a class="btn btn-lime btn-md" id="p-cta" href="#" style="align-self:flex-start"></a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- LIST VIEW -->
+  <section aria-label="รายการยูนิตทั้งหมด" class="th" style="display:flex;flex-direction:column;gap:20px;padding-top:24px;border-top:1px solid var(--light)">
+    <h2 class="eyebrow" style="font-family:var(--font-en)">ALL UNITS · ยูนิตทั้งหมด</h2>
+    <div id="groups" style="display:flex;flex-direction:column;gap:20px"></div>
+    <p style="margin:0;font-size:15px;font-weight:300;color:var(--muted)">ยังไม่ระบุตำแหน่งบนผัง: Café ชั้น 1 — Lounge · Café ชั้น 2 — Library</p>
+  </section>
+
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-grid">
+      <div class="footer-col" style="gap:16px">
+        <img src="assets/img/logo-footer.jpg" alt="Innovative Village" width="220" height="78" style="width:220px;height:auto;display:block">
+        <p style="font-family:var(--font-en);font-weight:600;font-size:13px;letter-spacing:.14em;color:var(--lime)">THE ECOSYSTEM OF INNOVATIVE COMMUNITY</p>
+        <p style="font-weight:300;color:var(--gray)">{ ระบบนิเวศของชุมชนคนนักคิด }</p>
+      </div>
+      <div class="footer-col">
+        <h2>CONTACT</h2>
+        <p style="font-weight:300">58/4 หมู่ 7 ถ.สมโภชเชียงใหม่ 700 ปี<br>ต.ป่าแดด อ.เมือง จ.เชียงใหม่ 50100</p>
+        <a href="tel:0947500500">094-750-0500</a>
+        <a href="mailto:info@innovativevillage.com">info@innovativevillage.com</a>
+        <a href="https://maps.app.goo.gl/pAtN5U9M9Ka26G7o9" target="_blank" rel="noopener" style="color:var(--lime);text-decoration:underline">เปิดแผนที่ Google Maps</a>
+      </div>
+      <nav class="footer-col footer-nav" aria-label="แผนผังเว็บไซต์">
+        <h2 style="margin-bottom:6px">EXPLORE</h2>
+        <a href="spaces.html#office">Office for Rent</a>
+        <a href="spaces.html#meeting">Meeting Room</a>
+        <a href="spaces.html#cowork">Cowork &amp; Facilities</a>
+        <a href="digital-twin.html">Digital Twin</a>
+        <a href="partner.html">Partner</a>
+        <a href="interns.html">ฝึกงาน</a>
+        <a href="activities.html">ผลงาน &amp; กิจกรรม</a>
+      </nav>
+      <div class="footer-col">
+        <h2>FOLLOW</h2>
+        <a class="footer-social" href="https://facebook.com/InnovativeVillageCNX" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#bcd732" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M15 8h-2a2 2 0 0 0-2 2v11M9 13h6"></path></svg>
+          Facebook: InnovativeVillageCNX
+        </a>
+        <a class="footer-social" href="https://lin.ee/QlYCKjI" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#bcd732" stroke-width="1.8" aria-hidden="true"><path d="M4 11c0-4 3.6-7 8-7s8 3 8 7-3.6 7-8 7c-.8 0-1.6-.1-2.3-.3L6 19.5l.8-3.2C5.1 15 4 13.1 4 11z"></path></svg>
+          LINE Official
+        </a>
+        <a class="btn btn-lime btn-md" href="booking.html" style="align-self:flex-start;margin-top:8px;color:var(--charcoal);text-decoration:none">จองห้อง / นัดดูออฟฟิศ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Innovative Village · Chiang Mai</span>
+      <span style="font-family:var(--font-en);letter-spacing:.1em">SOFTWARE PARK | CO-WORKING SPACE | CAFE &amp; MEETING ROOM</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/digital-twin.js"></script>
+</body>
+</html>
