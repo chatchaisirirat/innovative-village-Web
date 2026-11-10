@@ -32,6 +32,48 @@
     document.querySelectorAll('.deck.fan').forEach(function (d) { if (!d.contains(e.target)) d.classList.remove('fan'); });
   });
 
+  /* ---------- scroll reveal (home page) ----------
+   * Sections fade and rise in as they scroll into view. Once shown they stay
+   * shown, so scrolling back up shows everything normally. The effect plays
+   * again on every new visit to the home page (including Back from another page).
+   */
+  var REVEAL = [
+    '.hero-copy > *', '.hero-visual',
+    '.promo-in > *',
+    'main .head', 'main .head-row > .link',
+    'main .grid > *', '.twin-teaser > *', '.twin-list li',
+    '.partner-strip', '.cta-band .row > *'
+  ].join(',');
+  function setupReveal() {
+    if (!document.querySelector('.hero') || !('IntersectionObserver' in window)) return;
+    var items = Array.prototype.slice.call(document.querySelectorAll(REVEAL));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    var seen = new Map();
+    items.forEach(function (el) {
+      // stagger siblings that share a parent: cards in a row come in one after another
+      var n = seen.get(el.parentNode) || 0; seen.set(el.parentNode, n + 1);
+      el.style.setProperty('--rv-d', Math.min(n, 6) * 0.09 + 's');
+      el.style.transition = 'none';            // reset instantly (no fade-out) before replaying
+      el.classList.remove('rv-in');
+      el.classList.add('rv');
+      void el.offsetWidth;
+      el.style.transition = '';
+      io.observe(el);
+    });
+    return io;
+  }
+  var revealIO = setupReveal();
+  // coming Back to the home page from another page restores it from cache: replay
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return;
+    if (revealIO) revealIO.disconnect();
+    revealIO = setupReveal();
+  });
+
   /* links waiting for real URLs (e.g. partner websites) */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[aria-disabled="true"]');
