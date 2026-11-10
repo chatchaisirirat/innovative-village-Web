@@ -2,6 +2,18 @@
 (function () {
   'use strict';
 
+  /* ---------- start at the top ----------
+   * The browser normally keeps the scroll position on Refresh. Every page here
+   * starts at the top instead. Links to a section (e.g. spaces.html#office)
+   * still jump to that section, except on Refresh, which always goes to the top.
+   */
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) { /* ignore */ }
+  var nav0 = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  if (nav0.type === 'reload' || !location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function () { window.scrollTo(0, 0); });
+  }
+
   /* ---------- mobile menu ---------- */
   var btn = document.querySelector('.menu-btn');
   var nav = document.getElementById('main-nav');
