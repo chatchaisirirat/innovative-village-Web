@@ -106,6 +106,11 @@ def page(meta, body):
     title = meta['title']
     desc = meta.get('desc', 'Innovative Village — Software Park, Co-working Space, Cafe & Meeting Room ท่ามกลางต้นไม้ในเชียงใหม่')
     scripts = '<script src="assets/js/site.js"></script>'
+    extra_head = ''
+    if meta.get('fonts'):
+        extra_head += f'\n<link rel="stylesheet" href="{meta["fonts"]}">'
+    if meta.get('css'):
+        extra_head += f'\n<link rel="stylesheet" href="assets/css/{meta["css"]}">'
     if meta.get('script'):
         scripts += f'\n<script src="assets/js/{meta["script"]}"></script>'
     return f'''<!doctype html>
@@ -121,7 +126,7 @@ def page(meta, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&amp;family=Raleway:wght@300;400;600;700&amp;display=swap">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">{extra_head}
 </head>
 <body>
 {header(meta['active'])}
