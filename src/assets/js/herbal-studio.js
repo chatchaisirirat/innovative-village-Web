@@ -50,6 +50,21 @@
     });
   });
 
+  /* YouTube: show the thumbnail first, load the player only when tapped */
+  document.querySelectorAll('.hs-vthumb[data-yt]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.allowFullscreen = true;
+      var box = document.createElement('div');
+      box.className = 'hs-vthumb';
+      box.appendChild(f);
+      b.replaceWith(box);
+    });
+  });
+
   /* count-up for stats */
   function countUp(el) {
     var to = +el.dataset.count, from = to > 1000 ? to - 40 : 0, t0 = null, dur = 1400;

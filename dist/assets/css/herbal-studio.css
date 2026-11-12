@@ -165,7 +165,22 @@
 .hs-work .hs-ph{aspect-ratio:4/3}
 .hs-work.wide .hs-ph{aspect-ratio:auto;flex:1;min-height:240px}
 .hs-work.full{grid-column:1/-1}
-.hs-work.full .hs-ph{aspect-ratio:3/1}
+.hs-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.hs-video{display:flex;flex-direction:column;gap:12px;min-width:0}
+.hs-vthumb{position:relative;aspect-ratio:16/9;width:100%;border:0;padding:0;border-radius:14px;overflow:hidden;background:#211a2b;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.hs-vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.hs-vthumb:hover img{transform:scale(1.04)}
+.hs-vfallback{position:absolute;left:0;right:0;bottom:14px;color:#cfc6dc;font-size:13px;text-align:center}
+.hs-play{position:absolute;width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);transition:transform .25s}
+.hs-vthumb:hover .hs-play{transform:scale(1.08)}
+.hs-play svg{width:28px;height:28px;fill:var(--hs-purple);stroke:none;margin-left:4px}
+.hs-vthumb:focus-visible{outline:3px solid var(--hs-lilac);outline-offset:3px}
+.hs-vthumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hs-vtext{display:flex;flex-direction:column;gap:6px}
+.hs-vtext h3{font-size:18px;font-weight:500;color:var(--hs-plum)}
+.hs-vtext p{font-size:14.5px;color:var(--hs-sub);line-height:1.6}
+.hs-work.full{gap:16px;margin-top:12px}
+.hs-work.full figcaption b{font-size:20px}
 .hs-work figcaption{display:flex;flex-direction:column;gap:2px}
 .hs-work figcaption b{font-weight:500;font-size:16.5px;color:var(--hs-plum)}
 .hs-work figcaption span{font-size:14px;color:var(--hs-sub)}
@@ -210,7 +225,7 @@
   .hs-hero-media{padding:0}
   .hs-wgrid{grid-template-columns:1fr}
   .hs-work.wide,.hs-work.full{grid-column:auto}
-  .hs-work.full .hs-ph{aspect-ratio:4/3}
+  .hs-videos{grid-template-columns:1fr}
   .hs-work.wide .hs-ph{aspect-ratio:4/3;min-height:0}
   .hs-cta{padding:28px 22px}
   .hs-pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
