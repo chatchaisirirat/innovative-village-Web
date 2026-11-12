@@ -289,3 +289,7 @@ html.il-lock{overflow:hidden}
 
 /* company logo at the top of the hero (colours above are taken from this logo) */
 .il-logo{display:block;width:auto;max-width:100%;height:clamp(88px,9vw,124px);align-self:flex-start}
+
+/* photos from innergylab.com; the AI-camera shot is one corner of a collage, so show only that corner */
+.il-ph.r-1 img{object-position:50% 40%}
+.il-ph.r-1 img.zoom-tl{object-position:0 0;transform:scale(2);transform-origin:0 0}
