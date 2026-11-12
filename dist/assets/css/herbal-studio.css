@@ -164,6 +164,7 @@
 .hs-work.wide{grid-column:span 2}
 .hs-work .hs-ph{aspect-ratio:4/3}
 .hs-work.wide .hs-ph{aspect-ratio:auto;flex:1;min-height:240px}
+.hs-work.wide .hs-ph img{object-position:50% 12%} /* keep faces in view: the frame is wider than the photo, so crop from the floor, not the heads */
 .hs-work.full{grid-column:1/-1}
 .hs-videos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .hs-video{display:flex;flex-direction:column;gap:12px;min-width:0}
