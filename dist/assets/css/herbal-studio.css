@@ -183,6 +183,11 @@
 .hs-work.full figcaption b{font-size:20px}
 .hs-work figcaption{display:flex;flex-direction:column;gap:2px}
 .hs-work figcaption b{font-weight:500;font-size:16.5px;color:var(--hs-plum)}
+.hs-ph-link{display:flex;transition:box-shadow .25s}
+.hs-ph-link img{transition:transform .35s}
+.hs-ph-link:hover img{transform:scale(1.04)}
+.hs-ph-link:focus-visible{outline:3px solid var(--hs-lilac);outline-offset:3px}
+.hs-work figcaption .hs-link{font-size:14px;margin-top:2px}
 .hs-work figcaption span{font-size:14px;color:var(--hs-sub)}
 
 /* CTA */
