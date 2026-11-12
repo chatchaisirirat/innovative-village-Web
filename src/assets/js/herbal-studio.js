@@ -5,27 +5,32 @@
 
   /* products (from the brand's price list) */
   var CAT = { oil: 'Serum & Carrier Oil', hydro: 'Hydrosol', eo: 'Essential Oil' };
-  /* featured products: up to 4 per group */
+  /* featured products: up to 4 per group.
+     Photos come from the brand's own shop (shop.herbal-studio.com), checked against each product page.
+     If a photo cannot load (e.g. in a sandboxed preview) the grey placeholder underneath stays visible. */
+  var SHOP = 'https://shop.herbal-studio.com/cdn/shop/files/';
   var P = [
-    ['oil', 'Organic Facial Serum Oil', '30 ml', '650', 'Argan, Rosehip, Apricot, Jojoba และน้ำมันกุหลาบ ลดจุดด่างดำ'],
-    ['oil', 'Organic Rosehip Oil', '30 ml', '590', 'ช่วยลดรอยแผลเป็นและจุดด่างดำ ผิวเรียบเนียน'],
-    ['oil', 'Organic Argan Oil', '30 ml', '550', 'กรดไขมันจำเป็นและวิตามิน บำรุงผิวและเส้นผม'],
-    ['oil', 'Argan & Almond Anti-Aging Body Oil', '120 ml', '850', 'น้ำมันอัลมอนด์และอาร์แกนสกัดเย็น วิตามินอี และโรสแมรี่ ลดเลือนริ้วรอย'],
-    ['hydro', 'Organic Rose Water', '100 ml', '450', 'น้ำดอกกุหลาบ Damascena ปรับสมดุลและปลอบประโลมผิว', 'assets/img/herbal/rose-water.jpg'],
+    ['oil', 'Organic Anti-Aging Facial Oil', '30 ml', '650', 'Argan, Rosehip, Apricot, Jojoba และน้ำมันกุหลาบ ลดจุดด่างดำ', SHOP + '478.png?v=1738139416&width=600', 'https://shop.herbal-studio.com/products/organic-facial-serum-oil'],
+    ['oil', 'Organic Rosehip Oil', '30 ml', '590', 'ช่วยลดรอยแผลเป็นและจุดด่างดำ ผิวเรียบเนียน', SHOP + '35.png?v=1736842594&width=600', 'https://shop.herbal-studio.com/products/organic-rosehip-oil'],
+    ['oil', 'Organic Argan Oil', '30 ml', '550', 'กรดไขมันจำเป็นและวิตามิน บำรุงผิวและเส้นผม', SHOP + '36.png?v=1736842611&width=600', 'https://shop.herbal-studio.com/products/organic-argan-oil'],
+    ['oil', 'Organic Anti-Aging Body Oil', '120 ml', '450', 'อัลมอนด์ มะพร้าว อาร์แกนสกัดเย็น วิตามินอี กลิ่น Peppermint และ Rosemary', SHOP + '479.png?v=1738139415&width=600', 'https://shop.herbal-studio.com/products/organic-body-oil'],
+    ['hydro', 'Organic Rose Water', '100 ml', '450', 'น้ำดอกกุหลาบ Damascena ปรับสมดุลและปลอบประโลมผิว', 'assets/img/herbal/rose-water.jpg', 'https://shop.herbal-studio.com/products/organic-rose-water'],
+    ['hydro', 'Witch Hazel Water', '100 ml', '250', 'ลดการอักเสบของสิวและความมันส่วนเกิน', SHOP + '34_c53d3e05-6cd2-40d9-88d3-a164823cde2f.png?v=1736842789&width=600', 'https://shop.herbal-studio.com/products/witch-hazel-water'],
     ['hydro', 'Organic Aloe Vera Water', '100 ml', '350', 'ลดการอักเสบแสบร้อน กระชับรูขุมขน'],
-    ['hydro', 'Witch Hazel Water', '100 ml', '250', 'ลดการอักเสบของสิวและความมันส่วนเกิน'],
-    ['eo', 'Lavender Essential Oil', '10 ml', '395', 'ช่วยผ่อนคลายและปลอบประโลมผิว'],
-    ['eo', 'Ylang Ylang Essential Oil', '10 ml', '480', 'กระดังงาบริสุทธิ์ สำหรับอโรมาเธอราพี'],
-    ['eo', 'Rosemary Essential Oil', '10 ml', '380', 'สดชื่น กระตุ้นการไหลเวียน'],
-    ['eo', 'Bergamot Essential Oil', '10 ml', '280', 'ปรับสมดุลอารมณ์']
+    ['eo', 'Lavender Essential Oil', '10 ml', '395', 'ช่วยผ่อนคลายและปลอบประโลมผิว', SHOP + 'lavender.png?v=1736841360&width=600', 'https://shop.herbal-studio.com/products/lavender-essential-oil-10-ml'],
+    ['eo', 'Ylang Ylang Essential Oil', '10 ml', '480', 'กระดังงาบริสุทธิ์ สำหรับอโรมาเธอราพี', SHOP + 'ylangylang.png?v=1736841550&width=600', 'https://shop.herbal-studio.com/products/ylang-ylang-essential-oil-10-ml'],
+    ['eo', 'Rosemary Essential Oil', '10 ml', '380', 'สดชื่น กระตุ้นการไหลเวียน', SHOP + 'Rosemary.png?v=1736841299&width=600', 'https://shop.herbal-studio.com/products/rosemary-essential-oil-10-ml'],
+    ['eo', 'Bergamot Essential Oil', '10 ml', '280', 'ปรับสมดุลอารมณ์', SHOP + 'Bergamot.png?v=1736841715&width=600', 'https://shop.herbal-studio.com/products/bergamot-essential-oil-10-ml']
   ];
   var grid = document.getElementById('hs-pgrid');
   var esc = (window.IV && IV.esc) || function (s) { return String(s); };
   var GROUPS = { oil: 'Serum & Carrier Oil', hydro: 'Hydrosol', eo: 'Essential Oils' };
   function card(p, i) {
-    return '<article class="hs-prod" style="animation-delay:' + Math.min(i, 8) * 0.04 + 's">' +
-      (p[5] ? '<div class="hs-ph has-img"><img src="' + p[5] + '" alt="' + esc(p[1]) + '" width="800" height="1000" loading="lazy"></div>' : '<div class="hs-ph" role="img" aria-label="ภาพ ' + esc(p[1]) + ' (รอภาพจริง)"><span>[ภาพสินค้า]</span></div>') +
-      '<span class="cat">' + CAT[p[0]] + '</span><h3>' + esc(p[1]) + '</h3><p>' + esc(p[4]) + '</p>' +
+    var ph = '<div class="hs-ph' + (p[5] ? ' has-img' : '') + '"' + (p[5] ? '' : ' role="img" aria-label="ภาพ ' + esc(p[1]) + ' (รอภาพจริง)"') + '><span>[ภาพสินค้า]</span>' +
+      (p[5] ? '<img src="' + p[5] + '" alt="' + esc(p[1]) + '" loading="lazy" onerror="this.parentNode.classList.remove(\'has-img\');this.remove()">' : '') + '</div>';
+    var name = p[6] ? '<a href="' + p[6] + '" target="_blank" rel="noopener">' + esc(p[1]) + '</a>' : esc(p[1]);
+    return '<article class="hs-prod" style="animation-delay:' + Math.min(i, 8) * 0.04 + 's">' + ph +
+      '<span class="cat">' + CAT[p[0]] + '</span><h3>' + name + '</h3><p>' + esc(p[4]) + '</p>' +
       '<div class="meta"><span>' + p[2] + '</span><b>฿' + p[3] + '</b></div></article>';
   }
   /* "all" shows one row per group; a single group shows just its cards */

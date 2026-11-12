@@ -145,6 +145,9 @@
 .hs-prod .hs-ph{aspect-ratio:1;border-radius:14px;transition:transform .3s}
 .hs-prod:hover .hs-ph{transform:translateY(-4px)}
 .hs-prod .cat{background:none;padding:0;border:0;display:block;font-size:12px;letter-spacing:.06em;color:var(--hs-purple);font-family:var(--font-en);font-weight:600;text-transform:uppercase}
+.hs-prod h3 a{color:inherit;text-decoration:none}
+.hs-prod h3 a:hover{color:var(--hs-purple);text-decoration:underline;text-underline-offset:3px}
+.hs-prod .hs-ph.has-img{background:#fff}
 .hs-prod h3{font-size:16.5px;font-weight:500;color:var(--hs-plum);line-height:1.35}
 .hs-prod p{font-size:14px;color:var(--hs-sub);line-height:1.55}
 .hs-prod .meta{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-top:auto;padding-top:6px;border-top:1px solid var(--hs-line)}
