@@ -78,18 +78,26 @@
     requestAnimationFrame(step);
   }
 
-  /* staggered reveal */
+  /* staggered reveal: plays on every visit, including Back from another page */
   var items = Array.prototype.slice.call(document.querySelectorAll('.hs-rv, .hs-head'));
-  if (!('IntersectionObserver' in window) || reduce) {
-    items.forEach(function (el) { el.classList.add('rv-in'); });
-    document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = el.dataset.count; });
-  } else {
+  var io = null;
+  function setupReveal() {
+    if (io) io.disconnect();
+    if (!('IntersectionObserver' in window) || reduce) {
+      items.forEach(function (el) { el.classList.add('rv-in'); });
+      document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = el.dataset.count; });
+      return;
+    }
     var seen = new Map();
     items.forEach(function (el) {
       var n = seen.get(el.parentNode) || 0; seen.set(el.parentNode, n + 1);
       el.style.setProperty('--d', Math.min(n, 6) * 0.12 + 's');
+      el.style.transition = 'none';            // reset instantly (no fade-out) before replaying
+      el.classList.remove('rv-in');
+      void el.offsetWidth;
+      el.style.transition = '';
     });
-    var io = new IntersectionObserver(function (ents) {
+    io = new IntersectionObserver(function (ents) {
       ents.forEach(function (en) {
         if (!en.isIntersecting) return;
         en.target.classList.add('rv-in');
@@ -99,6 +107,8 @@
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
     items.forEach(function (el) { io.observe(el); });
   }
+  setupReveal();
+  addEventListener('pageshow', function (e) { if (e.persisted) setupReveal(); });
 
   /* gentle parallax on blobs and floating circles */
   var par = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));

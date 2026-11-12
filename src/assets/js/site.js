@@ -44,31 +44,62 @@
     document.querySelectorAll('.deck.fan').forEach(function (d) { if (!d.contains(e.target)) d.classList.remove('fan'); });
   });
 
-  /* ---------- scroll reveal (home page) ----------
-   * Sections fade and rise in as they scroll into view. Once shown they stay
+  /* ---------- scroll reveal (every page) ----------
+   * Headings, text, photos and cards fade and rise in, one after another, as
+   * they scroll into view. What is already on screen when the page opens (the
+   * title and buttons at the top) plays straight away. Once shown, a part stays
    * shown, so scrolling back up shows everything normally. The effect plays
-   * again on every new visit to the home page (including Back from another page).
+   * again on every new visit to a page, including Back from another page.
+   * Pages with their own reveal (Herbal Studio: .hs-rv) are left to that script.
    */
   var REVEAL = [
-    '.hero-copy > *', '.hero-visual',
-    '.promo-in > *',
-    'main .head', 'main .head-row > .link',
-    'main .grid > *', '.twin-teaser > *', '.twin-list li',
-    '.partner-strip', '.cta-band .row > *'
+    /* home */
+    '.hero-copy > *', '.hero-visual', '.promo-in > *', '.twin-teaser > *', '.twin-list li',
+    '.partner-strip', '.cta-band .row > *',
+    /* shared blocks on every page */
+    'main .head > *', 'main .head-row > *', 'main .page-head > *', 'main .grid > *',
+    'main .container > *', 'main .stack > *', 'main .jump', 'main .tabs', 'main .timeline > *',
+    'main .book-wrap > *', 'main .contact-wrap > *', 'main .apply-wrap > *', 'main .twin-wrap > *',
+    'main .join-steps > *', 'main .faq > *'
   ].join(',');
+  function pickReveal() {
+    var all = Array.prototype.slice.call(document.querySelectorAll(REVEAL));
+    var set = new Set(all);
+    return all.filter(function (el) {
+      if (el.closest('.hs-rv, header, footer, [hidden]')) return false;
+      // reveal the smallest parts: skip a wrapper when its own children are revealed
+      for (var i = 0; i < all.length; i++) if (all[i] !== el && el.contains(all[i])) return false;
+      var cs = getComputedStyle(el);
+      // leave alone anything already moved by its own CSS, pinned, or not drawn
+      if (cs.transform !== 'none' || cs.position === 'fixed' || cs.position === 'sticky' || cs.display === 'none') return false;
+      return set.has(el);
+    });
+  }
   function setupReveal() {
-    if (!document.querySelector('.hero') || !('IntersectionObserver' in window)) return;
-    var items = Array.prototype.slice.call(document.querySelectorAll(REVEAL));
+    if (!('IntersectionObserver' in window) || document.querySelector('.hs-rv')) return;
+    // clear any earlier run first, so a replay measures each element as it really is
+    document.querySelectorAll('.rv').forEach(function (el) {
+      clearTimeout(el._rvT); el.style.transition = 'none'; el.classList.remove('rv', 'rv-in');
+    });
+    var items = pickReveal();
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('rv-in'); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        el.classList.add('rv-in');
+        io.unobserve(el);
+        // when the fade is over, hand the element back to its own styles (hover effects etc.)
+        var d = parseFloat(el.style.getPropertyValue('--rv-d')) || 0;
+        clearTimeout(el._rvT);
+        el._rvT = setTimeout(function () { el.classList.remove('rv', 'rv-in'); }, (d + 1.1) * 1000);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
     var seen = new Map();
     items.forEach(function (el) {
       // stagger siblings that share a parent: cards in a row come in one after another
       var n = seen.get(el.parentNode) || 0; seen.set(el.parentNode, n + 1);
       el.style.setProperty('--rv-d', Math.min(n, 6) * 0.09 + 's');
+      clearTimeout(el._rvT);
       el.style.transition = 'none';            // reset instantly (no fade-out) before replaying
       el.classList.remove('rv-in');
       el.classList.add('rv');
@@ -78,8 +109,11 @@
     });
     return io;
   }
-  var revealIO = setupReveal();
-  // coming Back to the home page from another page restores it from cache: replay
+  var revealIO;
+  // run after the page's own script has drawn its content (cards, lists)
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { revealIO = setupReveal(); });
+  else revealIO = setupReveal();
+  // coming Back to a page from another page restores it from cache: replay
   window.addEventListener('pageshow', function (e) {
     if (!e.persisted) return;
     if (revealIO) revealIO.disconnect();
