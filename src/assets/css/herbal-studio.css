@@ -241,3 +241,6 @@
   .hs-rv{opacity:1;transform:none}
   .hs-rule{width:96px}
 }
+
+/* company logo at the top of the hero */
+.hs-logo{display:block;width:auto;max-width:100%;height:clamp(60px,6.4vw,84px);align-self:flex-start;margin:4px 0 2px}
