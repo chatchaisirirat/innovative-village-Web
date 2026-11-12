@@ -5,38 +5,36 @@
 
   /* products (from the brand's price list) */
   var CAT = { oil: 'Serum & Carrier Oil', hydro: 'Hydrosol', eo: 'Essential Oil' };
+  /* featured products: up to 4 per group */
   var P = [
-    ['oil', 'Argan & Almond Anti-Aging Body Oil', '120 ml', '850', 'น้ำมันอัลมอนด์และอาร์แกนสกัดเย็น วิตามินอี และโรสแมรี่ ลดเลือนริ้วรอย'],
     ['oil', 'Organic Facial Serum Oil', '30 ml', '650', 'Argan, Rosehip, Apricot, Jojoba และน้ำมันกุหลาบ ลดจุดด่างดำ'],
     ['oil', 'Organic Rosehip Oil', '30 ml', '590', 'ช่วยลดรอยแผลเป็นและจุดด่างดำ ผิวเรียบเนียน'],
     ['oil', 'Organic Argan Oil', '30 ml', '550', 'กรดไขมันจำเป็นและวิตามิน บำรุงผิวและเส้นผม'],
-    ['oil', 'Organic Eye Serum Oil', '15 ml', '450', 'Argan, Prickly Pear Seed, Rosehip ลดความหมองคล้ำรอบดวงตา'],
-    ['oil', 'Organic Body Oil', '120 ml', '450', 'อัลมอนด์ มะพร้าว อาร์แกน กลิ่น Peppermint และ Rosemary'],
-    ['oil', 'Organic Jojoba Oil', '30 ml', '390', 'ใกล้เคียงน้ำมันธรรมชาติของผิว ช่วยคุมความมัน'],
-    ['oil', 'Sweet Almond Oil', '120 ml', '350', 'วิตามิน A, B และ E ฟื้นฟูผิวแห้ง ใช้นวดได้'],
-    ['oil', 'Organic Coconut Oil', '120 ml', '250', 'น้ำมันมะพร้าวสกัดเย็น บำรุงผิวและเส้นผม'],
-    ['hydro', 'Organic Rose Water', '100 ml', '450', 'น้ำดอกกุหลาบ Damascena ปรับสมดุลและปลอบประโลมผิว'],
+    ['oil', 'Argan & Almond Anti-Aging Body Oil', '120 ml', '850', 'น้ำมันอัลมอนด์และอาร์แกนสกัดเย็น วิตามินอี และโรสแมรี่ ลดเลือนริ้วรอย'],
+    ['hydro', 'Organic Rose Water', '100 ml', '450', 'น้ำดอกกุหลาบ Damascena ปรับสมดุลและปลอบประโลมผิว', 'assets/img/herbal/rose-water.jpg'],
     ['hydro', 'Organic Aloe Vera Water', '100 ml', '350', 'ลดการอักเสบแสบร้อน กระชับรูขุมขน'],
     ['hydro', 'Witch Hazel Water', '100 ml', '250', 'ลดการอักเสบของสิวและความมันส่วนเกิน'],
-    ['eo', 'Ylang Ylang Essential Oil', '10 ml', '480', 'กระดังงาบริสุทธิ์ สำหรับอโรมาเธอราพี'],
     ['eo', 'Lavender Essential Oil', '10 ml', '395', 'ช่วยผ่อนคลายและปลอบประโลมผิว'],
+    ['eo', 'Ylang Ylang Essential Oil', '10 ml', '480', 'กระดังงาบริสุทธิ์ สำหรับอโรมาเธอราพี'],
     ['eo', 'Rosemary Essential Oil', '10 ml', '380', 'สดชื่น กระตุ้นการไหลเวียน'],
-    ['eo', 'Bergamot Essential Oil', '10 ml', '280', 'ปรับสมดุลอารมณ์'],
-    ['eo', 'Lemon Essential Oil', '10 ml', '195', 'กลิ่นสดชื่นพื้นฐาน'],
-    ['eo', 'Peppermint Essential Oil', '10 ml', '195', 'เย็นสดชื่น'],
-    ['eo', 'Orange Essential Oil', '10 ml', '195', 'กลิ่นส้มอบอุ่น'],
-    ['eo', 'Citronella Essential Oil', '10 ml', '195', 'ตะไคร้หอม'],
-    ['eo', 'Lemongrass Essential Oil', '10 ml', '195', 'ตะไคร้บ้าน']
+    ['eo', 'Bergamot Essential Oil', '10 ml', '280', 'ปรับสมดุลอารมณ์']
   ];
   var grid = document.getElementById('hs-pgrid');
   var esc = (window.IV && IV.esc) || function (s) { return String(s); };
+  var GROUPS = { oil: 'Serum & Carrier Oil', hydro: 'Hydrosol', eo: 'Essential Oils' };
+  function card(p, i) {
+    return '<article class="hs-prod" style="animation-delay:' + Math.min(i, 8) * 0.04 + 's">' +
+      (p[5] ? '<div class="hs-ph has-img"><img src="' + p[5] + '" alt="' + esc(p[1]) + '" width="800" height="1000" loading="lazy"></div>' : '<div class="hs-ph" role="img" aria-label="ภาพ ' + esc(p[1]) + ' (รอภาพจริง)"><span>[ภาพสินค้า]</span></div>') +
+      '<span class="cat">' + CAT[p[0]] + '</span><h3>' + esc(p[1]) + '</h3><p>' + esc(p[4]) + '</p>' +
+      '<div class="meta"><span>' + p[2] + '</span><b>฿' + p[3] + '</b></div></article>';
+  }
+  /* "all" shows one row per group; a single group shows just its cards */
   function draw(f) {
     if (!grid) return;
-    grid.innerHTML = P.filter(function (p) { return f === 'all' || p[0] === f; }).map(function (p, i) {
-      return '<article class="hs-prod" style="animation-delay:' + Math.min(i, 8) * 0.04 + 's">' +
-        '<div class="hs-ph" role="img" aria-label="ภาพ ' + esc(p[1]) + ' (รอภาพจริง)"><span>[ภาพสินค้า]</span></div>' +
-        '<span class="cat">' + CAT[p[0]] + '</span><h3>' + esc(p[1]) + '</h3><p>' + esc(p[4]) + '</p>' +
-        '<div class="meta"><span>' + p[2] + '</span><b>฿' + p[3] + '</b></div></article>';
+    var keys = f === 'all' ? Object.keys(GROUPS) : [f];
+    grid.innerHTML = keys.map(function (k) {
+      var items = P.filter(function (p) { return p[0] === k; });
+      return (f === 'all' ? '<h3 class="hs-pgroup">' + GROUPS[k] + '<span>' + items.length + ' รายการ</span></h3>' : '') + items.map(card).join('');
     }).join('');
   }
   draw('all');
