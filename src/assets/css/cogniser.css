@@ -45,8 +45,10 @@
 .cg-crumb{display:flex;gap:8px;font-size:14px;color:var(--cg-sub)}
 .cg-crumb a{text-decoration:none;border-bottom:1px solid var(--cg-line)}
 .cg-crumb a:hover{color:var(--cg-cyan);border-color:var(--cg-cyan)}
-.cg-logo-ph{width:170px;height:64px;border-radius:8px;background:#1a2a4a}
-.cg-logo-ph>span{color:#8ea3c7}
+.cg-logo{display:inline-flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:12px;background:#fff;box-shadow:0 0 0 1px rgba(62,227,255,.35),0 8px 24px rgba(0,0,0,.25);width:max-content;max-width:100%}
+.cg-logo img{width:44px;height:auto;display:block}
+.cg-logo span{font-family:var(--cg-mono);font-weight:600;font-size:14px;letter-spacing:.08em;color:#0f2546;line-height:1.1}
+.cg-logo small{display:block;font-size:10.5px;letter-spacing:.24em;color:#2a6fd6}
 .cg-hero h1{font-family:var(--cg-disp);font-weight:800;font-size:clamp(40px,6vw,80px);line-height:.98;letter-spacing:-.03em}
 .cg-hero h1 span{display:block;margin-top:.12em;font-size:.42em;letter-spacing:.42em;font-weight:600;background:linear-gradient(90deg,var(--cg-cyan),var(--cg-blue));-webkit-background-clip:text;background-clip:text;color:transparent}
 .cg-tag{font-family:var(--cg-disp);font-weight:500;font-size:clamp(18px,1.7vw,22px);color:var(--cg-ice)}
