@@ -332,6 +332,7 @@ main{overflow-x:clip}
 .villager{border:1px solid var(--gray);padding:24px;display:flex;flex-direction:column;gap:14px;font-family:var(--font-th)}
 .villager .top{display:flex;align-items:center;gap:16px}
 .villager .logo{width:64px;height:64px;flex-shrink:0;font-size:12px}
+.villager .logo-img{width:64px;height:64px;flex-shrink:0;object-fit:contain;background:#fff;border:1px solid var(--light)}
 .villager h3{margin:0;font-family:var(--font-en);font-size:21px;font-weight:600}
 .villager p{margin:0;font-size:16px;font-weight:300;line-height:1.6}
 .villager .contact{font-size:14px;font-weight:400;color:var(--muted)}
