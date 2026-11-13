@@ -64,14 +64,13 @@
   }
 
   /* ---- mouse parallax in the B ---- */
-  var hero = root.querySelector('.bc-hero'), bp = root.querySelector('.bc-b .bp'), cat = root.querySelector('.bc-b .cat');
-  if (hero && fine && !reduce) {
+  var hero = root.querySelector('.bc-hero'), bw = root.querySelector('.bc-b .bwrap');
+  if (hero && bw && fine && !reduce) {
     hero.addEventListener('mousemove', function (e) {
       var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-      bp.style.transform = 'translate(' + (x * -10).toFixed(1) + 'px,' + (y * -10).toFixed(1) + 'px)';
-      cat.style.transform = 'translate(' + (x * 10).toFixed(1) + 'px,' + (y * 10).toFixed(1) + 'px)';
+      bw.style.transform = 'translate(' + (x * 20).toFixed(1) + 'px,' + (y * 20).toFixed(1) + 'px)';
     });
-    hero.addEventListener('mouseleave', function () { bp.style.transform = cat.style.transform = ''; });
+    hero.addEventListener('mouseleave', function () { bw.style.transform = ''; });
   }
 
   /* ---- scroll reveals ---- */

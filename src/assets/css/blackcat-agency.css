@@ -34,7 +34,9 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-menu a::after,.dd-btn::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .3s}
 .bc-menu a:hover,.dd-btn:hover,.bc-menu a.on{color:var(--accent)}
 .bc-menu a:hover::after,.dd-btn:hover::after{transform:scaleX(1)}
-.bc-mark{display:block;width:34px;height:42px;color:var(--white)}
+.bc-mark{display:block;width:42px;height:42px}
+.bc-mark img{width:100%;height:100%;display:block;transition:transform .5s var(--ease-menu)}
+.bc-mark:hover img{transform:rotate(-8deg) scale(1.08)}
 .bc-mark svg{width:100%;height:100%;fill:currentColor;transition:transform .5s var(--ease-menu)}
 .bc-mark .eye{fill:var(--accent)}
 .bc-mark:hover svg{transform:rotate(-8deg) scale(1.08)}
@@ -70,9 +72,8 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
   animation:bc-twinkle 5s ease-in-out infinite alternate}
 @keyframes bc-twinkle{to{opacity:.55}}
 .moon{position:absolute;top:15%;left:60%;width:clamp(70px,8vw,112px);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 36% 34%,#FFE2B4 0%,#F4AE5E 45%,#E88431 80%,#c96a1c 100%);
+  background:url(../img/blackcat/moon.webp) center/158% no-repeat;
   box-shadow:0 0 30px 6px rgba(232,132,49,.45),0 0 90px 24px rgba(232,132,49,.18);animation:bc-glow 4s ease-in-out infinite alternate}
-.moon::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 62% 60%,rgba(150,70,10,.25) 0 9%,transparent 10%),radial-gradient(circle at 40% 70%,rgba(150,70,10,.18) 0 6%,transparent 7%),radial-gradient(circle at 70% 30%,rgba(150,70,10,.15) 0 5%,transparent 6%)}
 @keyframes bc-glow{to{box-shadow:0 0 44px 12px rgba(232,132,49,.6),0 0 140px 44px rgba(232,132,49,.26)}}
 .cloud{position:absolute;height:26px;border-radius:30px;background:#5a5a5a;opacity:.55;filter:blur(1px)}
 .cloud::before,.cloud::after{content:"";position:absolute;background:inherit;border-radius:50%}
@@ -103,11 +104,10 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-intro>:nth-child(2){animation-delay:.1s}.bc-intro>:nth-child(3){animation-delay:1.3s}.bc-intro>:nth-child(4){animation-delay:1.45s}.bc-intro>:nth-child(5){animation-delay:1.6s}
 @keyframes bc-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 .bc-b{margin:0;align-self:center;justify-self:center;width:min(100%,430px);filter:drop-shadow(0 30px 40px rgba(0,0,0,.35));animation:bc-up 1.4s var(--ease-reveal) .3s both}
-.bc-b svg{display:block;width:100%;height:auto}
-.bc-b .bp,.bc-b .cat{transition:transform .6s cubic-bezier(.22,1,.36,1)}
-.bc-b .phl{font-family:var(--font);font-size:15px;fill:#e8e8e8;letter-spacing:.5px}
-.bc-b .glow{animation:bc-eyes 3s ease-in-out infinite alternate}
-@keyframes bc-eyes{from{opacity:.5}to{opacity:1}}
+.bc-b .bwrap{position:relative;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.bc-b img{display:block;width:100%;height:auto}
+.bc-b .b1{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.bc-b:hover .b1{opacity:1}
 
 /* ---------- headings ---------- */
 .bc-h2{font-weight:600;font-size:clamp(28px,3.2vw,36px);letter-spacing:2px;line-height:1.2;text-transform:uppercase;display:flex;flex-direction:column;text-wrap:balance}
@@ -135,10 +135,15 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-list h3{font-weight:500;font-size:19px;color:var(--black)}
 .bc-list p{margin-top:6px;line-height:1.65;font-size:15.5px}
 .bc-list li:hover svg{stroke:var(--accent)}
-.bc-cloud{aspect-ratio:4/5;width:100%;max-width:440px;justify-self:center;border-radius:200px 200px 16px 16px}
+.bc-cloud{position:relative;margin:0;width:100%;max-width:480px;justify-self:center}
+.bc-cloud img{display:block;width:100%;height:auto}
+.bc-cloud .c1{position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.bc-cloud:hover .c1{opacity:1}
 
 /* ---------- services ---------- */
-.bc-rule{display:flex;align-items:flex-end;gap:28px}
+.bc-rule{display:flex;align-items:flex-end;gap:28px;position:relative}
+.rule-cat{position:absolute;right:28px;bottom:13px;width:clamp(70px,8vw,104px);height:auto;transform-origin:50% 100%;transition:transform .4s}
+.bc-rule:hover .rule-cat{transform:rotate(-4deg) scale(1.05)}
 .bc-rule i{flex:1;height:2px;background:var(--g800);margin-bottom:12px;transform-origin:left;transform:scaleX(0);transition:transform 1.6s var(--ease-reveal) .4s}
 .bc-rule.in i{transform:none}
 .bc-svcs{margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 64px}
@@ -174,24 +179,27 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-card.r{top:80px}
 .bc-card.in{opacity:1;transform:none}
 .bc-card.out{opacity:0!important;transform:scale(.8)!important;transition:opacity .3s,transform .3s}
-.bc-card .pic{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--g100)}
-.bc-card .bc-ph{position:absolute;inset:0;border-radius:0;transition:transform .6s cubic-bezier(.22,1,.36,1);filter:grayscale(1)}
+.bc-card .pic{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--g100)}
+.bc-card .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:transform .6s cubic-bezier(.22,1,.36,1),filter .6s}
 .bc-card .ov{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:flex-end;padding:22px;transition:background .45s}
 .bc-card .ov span{color:#fff;font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transform:translateY(16px);opacity:0;transition:transform .45s,opacity .45s}
 .bc-card .dot{position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-style:normal;font-size:18px;transition:transform .45s}
-.bc-card:hover .bc-ph{transform:scale(1.06)}
+.bc-card:hover .pic img,.bc-card .pic:focus-visible img{transform:scale(1.06);filter:grayscale(0)}
 .bc-card:hover .ov{background:rgba(0,0,0,.6)}
 .bc-card:hover .ov span{transform:none;opacity:1}
 .bc-card:hover .dot{transform:rotate(45deg) scale(1.15)}
 .bc-card h3{margin-top:16px;font-weight:600;font-size:20px;color:var(--black)}
 .bc-card p{margin-top:2px;font-size:14px;color:var(--g500)}
 .bc-work-foot{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.bc-work-foot .note{font-size:12.5px;color:var(--g500);max-width:52ch}
+.bc-work-foot .note{font-size:12.5px;color:var(--g500);max-width:52ch;flex:1 1 240px}
+.box-cat{width:150px;height:auto}
 .bc-btn{display:inline-flex;gap:10px;align-items:center;padding:13px 26px;border:1.5px solid var(--black);border-radius:40px;text-decoration:none;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
 .bc-btn:hover{background:var(--black);color:#fff}
 .bc-btn:hover span{color:var(--accent)}
 
 /* ---------- story ---------- */
+.bc-story-in{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:48px;align-items:center;max-width:1040px}
+.story-cat{width:100%;height:auto}
 .bc-time{margin-top:44px;position:relative;display:flex;flex-direction:column;gap:34px;padding-left:0}
 .bc-time::before{content:"";position:absolute;left:83px;top:8px;bottom:8px;width:1px;background:var(--g300b)}
 .bc-time li{display:grid;grid-template-columns:70px 28px minmax(0,1fr);align-items:start;position:relative}
@@ -208,8 +216,8 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-car .vp{overflow:hidden}
 .bc-car .track{display:flex;transition:transform .6s var(--ease-reveal)}
 .bc-car li{flex:0 0 calc(100%/6);display:flex;align-items:center;justify-content:center;height:96px;padding:0 10px}
-.wm{color:var(--g500);opacity:.4;transition:opacity .4s,color .4s;text-align:center;line-height:1.2;white-space:nowrap}
-.wm:hover{opacity:1;color:var(--black)}
+.bc-car .lg{max-width:130px;max-height:64px;width:auto;height:auto;filter:grayscale(1);opacity:.4;transition:filter .4s,opacity .4s}
+.bc-car .lg:hover{filter:grayscale(0);opacity:1}
 .w1{font-weight:700;font-size:22px;letter-spacing:1px}.w2{font-weight:600;font-size:21px;letter-spacing:.5px}
 .w3{font-weight:700;font-size:22px;letter-spacing:4px}.w4{font-weight:500;font-size:21px;font-style:italic}
 .w5{font-weight:600;font-size:20px;letter-spacing:2px;text-transform:uppercase}.w6{font-weight:500;font-size:15px;white-space:normal}
@@ -218,7 +226,8 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
 .bc-car .dots button[aria-current="true"]{background:var(--accent);width:24px;border-radius:6px}
 
 /* ---------- info (dark) ---------- */
-.bc-info{background:var(--foot);color:#cfcfcf;padding-block:72px;scroll-margin-top:60px}
+.bc-info{position:relative;background:var(--foot);color:#cfcfcf;padding-block:84px 72px;scroll-margin-top:60px}
+.yarn-cat{position:absolute;left:max(16px,calc(50% - 560px));top:0;width:clamp(170px,20vw,250px);height:auto;transform:translateY(-82%);pointer-events:none}
 .bc-info-in{display:grid;grid-template-columns:1.2fr 1fr 1.1fr 1fr;gap:40px}
 .bc-info h3{color:#fff;font-weight:500;font-size:15px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #444}
 .bc-info p,.bc-info li{font-size:14.5px;line-height:1.7}
@@ -254,8 +263,8 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
   .bc-drawer a:hover{color:var(--accent)}
   .bc-drawer p{font-size:14px;letter-spacing:3px;color:#888}.bc-drawer p b{color:var(--accent);font-weight:400}
   .bc-hero{min-height:0}
-  .bc-rim{clip-path:polygon(0% 0%,100% 0%,100.0% 65.5%,98.1% 64.4%,95.1% 63.8%,92.9% 66.1%,91.6% 65.0%,89.1% 63.3%,87.2% 65.0%,85.1% 64.9%,83.5% 63.4%,82.1% 64.0%,79.1% 64.0%,76.3% 63.1%,73.6% 62.1%,71.9% 63.6%,69.2% 62.6%,67.8% 62.1%,66.2% 61.9%,63.4% 61.5%,60.4% 63.1%,59.1% 61.6%,56.9% 60.4%,54.9% 62.7%,53.4% 61.7%,52.0% 61.5%,49.0% 60.2%,47.8% 59.7%,45.5% 59.3%,44.1% 60.6%,41.1% 60.1%,39.1% 60.5%,37.7% 60.2%,36.2% 60.2%,33.1% 58.3%,30.8% 59.7%,29.3% 58.6%,26.1% 60.3%,24.6% 59.4%,21.5% 57.8%,19.1% 57.0%,17.2% 58.6%,14.8% 58.7%,13.4% 57.4%,10.5% 57.8%,8.4% 57.1%,5.2% 57.3%,4.0% 57.8%,2.1% 56.6%,0.5% 56.5%,0% 56.6%)}
-  .bc-sky{clip-path:polygon(0% 0%,100% 0%,100.0% 63.9%,98.1% 63.0%,95.1% 62.5%,92.9% 64.2%,91.6% 63.4%,89.1% 62.0%,87.2% 63.3%,85.1% 63.2%,83.5% 61.9%,82.1% 62.4%,79.1% 62.3%,76.3% 61.6%,73.6% 60.8%,71.9% 61.8%,69.2% 61.1%,67.8% 60.6%,66.2% 60.5%,63.4% 60.0%,60.4% 61.3%,59.1% 60.1%,56.9% 59.1%,54.9% 60.8%,53.4% 60.0%,52.0% 59.9%,49.0% 58.8%,47.8% 58.4%,45.5% 58.0%,44.1% 59.0%,41.1% 58.5%,39.1% 58.8%,37.7% 58.6%,36.2% 58.5%,33.1% 57.0%,30.8% 58.0%,29.3% 57.1%,26.1% 58.4%,24.6% 57.7%,21.5% 56.4%,19.1% 55.7%,17.2% 56.9%,14.8% 56.9%,13.4% 55.9%,10.5% 56.1%,8.4% 55.5%,5.2% 55.6%,4.0% 56.0%,2.1% 55.0%,0.5% 54.9%,0% 55.0%)}
+  .bc-rim{clip-path:polygon(0% 0%,100% 0%,100.0% 56.5%,98.1% 55.4%,95.1% 54.8%,92.9% 57.1%,91.6% 56.1%,89.1% 54.4%,87.2% 56.1%,85.1% 56.0%,83.5% 54.5%,82.1% 55.2%,79.1% 55.2%,76.3% 54.4%,73.6% 53.4%,71.9% 54.8%,69.2% 53.9%,67.8% 53.4%,66.2% 53.3%,63.4% 52.8%,60.4% 54.5%,59.1% 53.0%,56.9% 51.8%,54.9% 54.1%,53.4% 53.1%,52.0% 53.0%,49.0% 51.7%,47.8% 51.3%,45.5% 50.9%,44.1% 52.1%,41.1% 51.7%,39.1% 52.1%,37.7% 51.8%,36.2% 51.8%,33.1% 50.0%,30.8% 51.4%,29.3% 50.3%,26.1% 52.1%,24.6% 51.1%,21.5% 49.6%,19.1% 48.8%,17.2% 50.5%,14.8% 50.6%,13.4% 49.2%,10.5% 49.7%,8.4% 49.0%,5.2% 49.2%,4.0% 49.8%,2.1% 48.6%,0.5% 48.5%,0% 48.6%)}
+  .bc-sky{clip-path:polygon(0% 0%,100% 0%,100.0% 54.9%,98.1% 54.0%,95.1% 53.5%,92.9% 55.3%,91.6% 54.4%,89.1% 53.1%,87.2% 54.4%,85.1% 54.3%,83.5% 53.1%,82.1% 53.6%,79.1% 53.5%,76.3% 52.9%,73.6% 52.0%,71.9% 53.1%,69.2% 52.4%,67.8% 51.9%,66.2% 51.8%,63.4% 51.4%,60.4% 52.7%,59.1% 51.5%,56.9% 50.5%,54.9% 52.3%,53.4% 51.5%,52.0% 51.3%,49.0% 50.3%,47.8% 49.9%,45.5% 49.6%,44.1% 50.5%,41.1% 50.1%,39.1% 50.4%,37.7% 50.2%,36.2% 50.1%,33.1% 48.7%,30.8% 49.7%,29.3% 48.8%,26.1% 50.2%,24.6% 49.4%,21.5% 48.1%,19.1% 47.5%,17.2% 48.8%,14.8% 48.8%,13.4% 47.7%,10.5% 48.0%,8.4% 47.5%,5.2% 47.6%,4.0% 48.0%,2.1% 47.0%,0.5% 46.9%,0% 47.0%)}
   .moon{left:72%;top:13%}
   .bc-hero-in{grid-template-columns:1fr;padding-top:96px;gap:104px}
   .bc-b{order:-1;width:min(64vw,330px)}
@@ -264,6 +273,7 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
   .bc-sub{letter-spacing:3px;font-size:15px}
   .bc-why-in{grid-template-columns:1fr}
   .bc-cloud{max-width:380px}
+  .bc-story-in{grid-template-columns:minmax(0,1fr) 170px;gap:24px}
   .bc-car li{flex-basis:calc(100%/3)}
 }
 @media (max-width:640px){
@@ -279,6 +289,8 @@ html{scrollbar-color:#E88431 transparent;scrollbar-width:thin}
   .bc-grid{grid-template-columns:1fr;padding-bottom:0}
   .bc-card.r{top:0}
   .bc-time::before{left:63px}
+  .bc-story-in{grid-template-columns:1fr}
+  .story-cat{width:150px;justify-self:end;margin-top:-20px}
   .bc-time li{grid-template-columns:52px 24px minmax(0,1fr)}
   .bc-time .yr{font-size:15px}
   .bc-time div{padding-left:10px}
