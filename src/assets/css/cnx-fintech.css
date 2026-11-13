@@ -160,3 +160,11 @@
   .cf-rv{opacity:1;filter:none;transform:none}
   .cf-cut .w>span{transform:none}
 }
+
+/* real photos */
+.cf-logo{width:72px;height:72px;border-radius:16px;box-shadow:0 10px 24px -10px rgba(17,24,39,.35)}
+.cf-ph img+span{display:none}
+.cf-blob .cf-ph{background:#c9ccd2}
+.cf-work li:hover .cf-ph img{transform:scale(1.04)}
+.cf-work .cf-ph img{transition:transform .6s ease-out}
+.cf-credit{font-size:11.5px!important;color:var(--cf-mute)}
