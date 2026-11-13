@@ -116,8 +116,9 @@
 .rh-hubs p:not(.rh-label),.rh-feats p{font-size:15.5px;line-height:1.65}
 
 /* hotspots */
-.rh-spot{position:relative;margin:clamp(40px,6vw,72px) auto;max-width:980px}
-.rh-spot-ph{aspect-ratio:16/10;background:linear-gradient(180deg,#e8e8e8,#d8d8d8)}
+.rh-spot{position:relative;margin:clamp(40px,6vw,72px) auto;max-width:720px}
+.rh-spot-ph{aspect-ratio:1100/977;background:var(--rh-soft);border-radius:0}
+.rh-spot-ph img{object-fit:contain}
 .rh-hs{position:absolute;left:var(--x);top:var(--y);z-index:2}
 .rh-hs button{position:relative;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:0;background:#fff;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);animation:rh-pulse 2s var(--ease-out) infinite;display:grid;place-items:center}
 .rh-hs i{position:relative;width:14px;height:14px;transition:transform .3s var(--ease-std)}
@@ -352,3 +353,21 @@
   .rh-spot.rh-rv .rh-spot-ph{clip-path:none}
   .rh-scrub .w{color:var(--rh-ink)}
 }
+
+/* real photos */
+.rh-logo{height:38px;width:auto;display:block}
+.rh-ph img+span{display:none}
+.rh-acc-i .rh-ph img,.rh-slide .rh-ph img{transition:transform .6s var(--ease-out)}
+.rh-acc-i:hover .rh-ph img{transform:scale(1.04)}
+.rh-who .rh-ph img{transition:transform .6s var(--ease-out)}
+.rh-who li:hover .rh-ph img{transform:scale(1.04)}
+.rh-hero-ph{background:#000}
+.rh-hero-media::after{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,.45) 45%,rgba(0,0,0,.92) 100%)}
+.rh-vid{display:block;color:#fff!important;text-decoration:none;background:#000}
+.rh-vid::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.3);transition:background .3s}
+.rh-vid:hover::after{background:rgba(0,0,0,.15)}
+.rh-vid .play{position:absolute;z-index:1;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--rh-red);display:grid;place-items:center;transition:transform .3s var(--ease-out)}
+.rh-vid:hover .play{transform:scale(1.08)}
+.rh-vid .play svg{width:30px;height:30px;fill:#fff;stroke:none;margin-left:4px}
+.rh-vid .vt{position:absolute;z-index:1;left:20px;bottom:18px;font-size:15px;font-weight:600;display:block!important}
+@media (max-width:640px){.rh-logo{height:30px}}
