@@ -66,7 +66,7 @@
     var all = Array.prototype.slice.call(document.querySelectorAll(REVEAL));
     var set = new Set(all);
     return all.filter(function (el) {
-      if (el.closest('.hs-rv, header, footer, [hidden]')) return false;
+      if (el.closest('.hs-rv, .rh, header, footer, [hidden]')) return false;
       // reveal the smallest parts: skip a wrapper when its own children are revealed
       for (var i = 0; i < all.length; i++) if (all[i] !== el && el.contains(all[i])) return false;
       var cs = getComputedStyle(el);
@@ -76,7 +76,7 @@
     });
   }
   function setupReveal() {
-    if (!('IntersectionObserver' in window) || document.querySelector('.hs-rv')) return;
+    if (!('IntersectionObserver' in window) || document.querySelector('.hs-rv, .rh-rv')) return;
     // clear any earlier run first, so a replay measures each element as it really is
     document.querySelectorAll('.rv').forEach(function (el) {
       clearTimeout(el._rvT); el.style.transition = 'none'; el.classList.remove('rv', 'rv-in');
