@@ -132,18 +132,18 @@
 
   /* ---------- story carousel ---------- */
   var STORY = [
-    ['2563', 'ก่อนปี 2563', 'ทีมที่สะสมประสบการณ์มากว่า 10 ปี', 'ทีมหลักทำงานด้านการตลาดดิจิทัล กราฟิก และโฆษณามากว่า 10 ปี และพัฒนาเว็บไซต์และระบบมากกว่า 6 ปี ก่อนรวมตัวเป็นบริษัท', 'FOUNDATION', 'a'],
-    ['2563', '22 พ.ค. 2563', 'จดทะเบียนบริษัทที่เชียงใหม่', 'ก่อตั้ง บริษัท แบล็คแคท เอเจนซี่ จำกัด เริ่มจากงานที่ปรึกษาประชาสัมพันธ์และกิจกรรมทางการตลาด', 'FOUNDATION', 'b'],
-    ['2564', '2564 – 2567', 'ขยายเป็น Full-Service Digital Agency', 'รวมทีมพัฒนาเว็บและแอป ผู้เชี่ยวชาญ SEO และทีมโปรดักชันไว้ในบ้าน และย้ายสำนักงานมาโครงการฟิฟธ์อเวนิว อ.สันทราย', 'GROWTH', 'c'],
-    ['2566', 'ม.ค. – มี.ค. 2566', 'Smart Content for Sustainable', 'วิทยากรโครงการ Smart Greenhouse ของศูนย์วิทยาศาสตร์ฮาลาล จุฬาฯ อบรมเกษตรกร 4 จังหวัดภาคเหนือ 10 รุ่น รวมกว่า 600 คน', 'KNOWLEDGE', 'd'],
-    ['2568', '27 ส.ค. 2568', 'จับมือถือ = จับโอกาส', 'ทีมวิทยากรบรรยายเทคนิคสร้างรายได้ผ่านโซเชียลมีเดียและคอนเทนต์ขายของออนไลน์ ที่มหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม', 'KNOWLEDGE', 'e'],
-    ['2568', '4 ต.ค. 2568', 'ถ่ายทอดงานออกแบบกราฟิก', 'นักออกแบบกราฟิกของทีมเป็นวิทยากรให้ความรู้ด้านการออกแบบ ที่วิทยาลัยอาชีวศึกษาแพร่', 'KNOWLEDGE', 'f'],
-    ['2568', 'พ.ย. 2568', 'Chiang Mai Youth Hackathon', 'ได้รับคัดเลือกให้จัดการแข่งขันเยาวชนร่วมออกแบบเมืองของเทศบาลนครเชียงใหม่', 'CITY PROJECT', 'g'],
-    ['2568', '2568', 'Digital Content ให้ สรพ.', 'ผู้รับจ้างจัดทำการสื่อสารออนไลน์ให้สถาบันรับรองคุณภาพสถานพยาบาล (องค์การมหาชน)', 'PUBLIC SECTOR', 'h'],
-    ['2568', '2 ธ.ค. 2568', 'City Branding ในยุค AI', 'บรรยายหัวข้อ Communication Strategy และการสร้างแบรนด์ของเมือง ในหลักสูตรผู้นำเมืองอัจฉริยะยุค AI', 'KNOWLEDGE', 'i']
+    ['2563', 'ก่อนปี 2563', 'ทีมที่สะสมประสบการณ์มากว่า 10 ปี', 'ทีมหลักทำงานด้านการตลาดดิจิทัล กราฟิก และโฆษณามากว่า 10 ปี และพัฒนาเว็บไซต์และระบบมากกว่า 6 ปี ก่อนรวมตัวเป็นบริษัท', 'FOUNDATION', 'a', 'story-team.webp', 'ทีม BlackCat ภาพประกอบจากเว็บไซต์บริษัท', 1],
+    ['2563', '22 พ.ค. 2563', 'จดทะเบียนบริษัทที่เชียงใหม่', 'ก่อตั้ง บริษัท แบล็คแคท เอเจนซี่ จำกัด เริ่มจากงานที่ปรึกษาประชาสัมพันธ์และกิจกรรมทางการตลาด', 'FOUNDATION', 'b', 'story-found.webp', 'โลโก้ BlackCat Agency', 1],
+    ['2564', '2564 – 2567', 'ขยายเป็น Full-Service Digital Agency', 'รวมทีมพัฒนาเว็บและแอป ผู้เชี่ยวชาญ SEO และทีมโปรดักชันไว้ในบ้าน และย้ายสำนักงานมาโครงการฟิฟธ์อเวนิว อ.สันทราย', 'GROWTH', 'c', 'story-full.jpg', 'ตัวอย่างคอนเทนต์ Marketing Funnel ของ BlackCat', 0],
+    ['2566', 'ม.ค. – มี.ค. 2566', 'Smart Content for Sustainable', 'วิทยากรโครงการ Smart Greenhouse ของศูนย์วิทยาศาสตร์ฮาลาล จุฬาฯ อบรมเกษตรกร 4 จังหวัดภาคเหนือ 10 รุ่น รวมกว่า 600 คน', 'KNOWLEDGE', 'd', 'story-halal.jpg', 'ภาพหมู่ผู้เข้าอบรมโครงการ Halal Smart Farm', 0],
+    ['2568', '27 ส.ค. 2568', 'จับมือถือ = จับโอกาส', 'ทีมวิทยากรบรรยายเทคนิคสร้างรายได้ผ่านโซเชียลมีเดียและคอนเทนต์ขายของออนไลน์ ที่มหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม', 'KNOWLEDGE', 'e', 'story-cmru.jpg', 'ทีมวิทยากรบรรยายบนเวที มหาวิทยาลัยราชภัฏเชียงใหม่', 0],
+    ['2568', '4 ต.ค. 2568', 'ถ่ายทอดงานออกแบบกราฟิก', 'นักออกแบบกราฟิกของทีมเป็นวิทยากรให้ความรู้ด้านการออกแบบ ที่วิทยาลัยอาชีวศึกษาแพร่', 'KNOWLEDGE', 'f', 'story-pvc.jpg', 'วิทยากรบรรยาย Illustration for Beginner ที่วิทยาลัยอาชีวศึกษาแพร่', 0],
+    ['2568', 'พ.ย. 2568', 'Chiang Mai Youth Hackathon', 'ได้รับคัดเลือกให้จัดการแข่งขันเยาวชนร่วมออกแบบเมืองของเทศบาลนครเชียงใหม่', 'CITY PROJECT', 'g', 'story-idea.webp', 'ภาพประกอบหลอดไฟ แทนไอเดียของเยาวชน', 1],
+    ['2568', '2568', 'Digital Content ให้ สรพ.', 'ผู้รับจ้างจัดทำการสื่อสารออนไลน์ให้สถาบันรับรองคุณภาพสถานพยาบาล (องค์การมหาชน)', 'PUBLIC SECTOR', 'h', 'story-content.jpg', 'ตัวอย่างคอนเทนต์วิดีโอของ BlackCat', 0],
+    ['2568', '2 ธ.ค. 2568', 'City Branding ในยุค AI', 'บรรยายหัวข้อ Communication Strategy และการสร้างแบรนด์ของเมือง ในหลักสูตรผู้นำเมืองอัจฉริยะยุค AI', 'KNOWLEDGE', 'i', 'story-brand.jpg', 'ตัวอย่างคอนเทนต์สร้างเอกลักษณ์ให้แบรนด์ของ BlackCat', 0]
   ];
-  function art(k) {
-    var bg = { a: '#E8862A', b: '#111', c: '#F4F4F4', d: '#FCEBDC', e: '#111', f: '#E8862A', g: '#F4F4F4', h: '#111', i: '#FCEBDC' }[k];
+  function art(k, plain) {
+    var bg = { a: '#E8862A', b: '#FCEBDC', c: '#F4F4F4', d: '#FCEBDC', e: '#111', f: '#E8862A', g: '#111', h: '#111', i: '#FCEBDC' }[k];
     var fg = (bg === '#111') ? '#E8862A' : '#111', ln = (bg === '#111') ? '#fff' : '#111';
     var s = '<svg viewBox="0 0 400 240" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect width="400" height="240" fill="' + bg + '"/>';
     s += '<g fill="none" stroke="' + ln + '" stroke-opacity=".18">'; for (var x = 20; x < 400; x += 40) s += '<path d="M' + x + ' 0V240"/>'; for (var y = 20; y < 240; y += 40) s += '<path d="M0 ' + y + 'H400"/>'; s += '</g>';
@@ -158,12 +158,12 @@
       h: '<rect x="110" y="60" width="180" height="120" rx="10" fill="#fff" stroke="#E8862A" stroke-width="4"/><path d="M200 90v60M170 120h60" stroke="#E8862A" stroke-width="12"/>',
       i: '<circle cx="200" cy="120" r="80" fill="none" stroke="#111" stroke-width="3"/><circle cx="200" cy="120" r="48" fill="#E8862A" stroke="#111" stroke-width="3"/><path d="M200 40v160M120 120h160" stroke="#111" stroke-width="3" stroke-dasharray="6 6"/>'
     }[k];
-    return s + shapes + '</svg>';
+    return s + (plain ? '' : shapes) + '</svg>';
   }
   var track = $('#st-track'), cur = $('#st-cur'), prog = $('#st-prog'), tot = $('#st-tot');
   track.innerHTML = STORY.map(function (s, i) {
     return '<article class="st-card' + (i ? '' : ' on') + '" data-i="' + i + '" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + ' จาก ' + STORY.length + ': ' + esc(s[2]) + '">' +
-      '<div class="st-art">' + art(s[5]) + '</div><div class="st-body"><span class="st-date"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>' + esc(s[1]) + '</span>' +
+      '<div class="st-art' + (s[6] ? (s[8] ? ' cut' : ' pic') : '') + '">' + (s[6] ? art(s[5], s[8]) + '<img src="assets/img/blackcat/' + s[6] + '" alt="' + esc(s[7]) + '" loading="lazy" decoding="async">' : art(s[5])) + '</div><div class="st-body"><span class="st-date"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>' + esc(s[1]) + '</span>' +
       '<h3>' + esc(s[2]) + '</h3><p>' + esc(s[3]) + '</p><span class="st-tag">' + esc(s[4]) + '</span></div></article>';
   }).join('');
   tot.textContent = ('0' + STORY.length).slice(-2);
@@ -222,7 +222,9 @@
   });
   var CL = [['ais', 'AIS 5G'], ['kplus', 'K+'], ['ptt', 'PTT'], ['uni', 'Unilever'], ['rim', 'Rimping'], ['tiktok', 'TikTok'], ['cmu', 'มหาวิทยาลัยเชียงใหม่'], ['mju', 'มหาวิทยาลัยแม่โจ้'], ['tc', 'Tencent Cloud'], ['banpu', 'Banpu'], ['arv', 'AI and Robotics Ventures'], ['egat', 'กฟผ.'], ['nde', 'Northern Digital Economy'], ['camt', 'CAMT มช.'], ['payap', 'มหาวิทยาลัยพายัพ'], ['halal', 'ศูนย์วิทยาศาสตร์ฮาลาล จุฬาฯ'], ['fm', 'Fresh & Mild'], ['cc', 'หอการค้าจังหวัดเชียงใหม่']];
   var row = CL.map(function (c, i) { return '<img src="assets/img/blackcat/client-' + c[0] + '.webp" alt="' + esc(c[1]) + '">'; }).join('');
-  $('#cl-row').innerHTML = row + row.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+  var dup = row.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+  /* each half = 2 sets so the -50% loop never shows an empty tail on wide screens */
+  $('#cl-row').innerHTML = row + dup + dup + dup;
 
   /* ---------- scroll reveals (once) ---------- */
   var watch = $$('.bk-h2, .bk-mlab, .bk-rv, .bk-feat, .bk-svc, .bk-about, .ab-stats');

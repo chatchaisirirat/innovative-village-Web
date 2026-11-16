@@ -269,6 +269,13 @@ html{scrollbar-color:#E8862A transparent;scrollbar-width:thin}
 .st-card.on{flex-basis:min(400px,82vw);background:#fff;color:var(--ink);box-shadow:8px 8px 0 var(--ink)}
 .st-art{height:220px;overflow:hidden;border-bottom:1.5px solid var(--ink)}
 .st-art svg{width:110%;height:110%;margin:-5%;transition:transform .6s var(--smooth)}
+.st-art{position:relative}
+.st-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--smooth),filter .4s}
+.st-art.pic img{filter:grayscale(.85) contrast(1.05)}
+.st-card.on .st-art.pic img{filter:none}
+.st-art.cut img{object-fit:contain;padding:14px;filter:drop-shadow(6px 8px 0 rgba(0,0,0,.25))}
+.st-card.on .st-art img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.st-art img{transition:none}.st-card.on .st-art img{transform:none}}
 .st-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
 .st-date{display:flex;align-items:center;gap:8px;font-family:var(--hd);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--or-l)}
 .st-card.on .st-date{color:var(--or-d)}
@@ -304,7 +311,7 @@ html{scrollbar-color:#E8862A transparent;scrollbar-width:thin}
 .wk-grid .cap span{font-size:13px;color:var(--g5)}
 .wk-grid .cap em{font-style:normal;align-self:flex-start;margin-top:6px;font-family:var(--hd);font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--or-d)}
 .cl-marq{margin-top:72px;overflow:hidden;border-block:1.5px solid var(--ink);background:#fff;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.cl-row{display:flex;gap:56px;align-items:center;width:max-content;padding:22px 0;animation:bkMarq 50s linear infinite}
+.cl-row{display:flex;gap:56px;align-items:center;width:max-content;padding:22px 0;animation:bkMarq 80s linear infinite}
 .cl-marq:hover .cl-row{animation-play-state:paused}
 .cl-row img{height:48px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.55;transition:filter .3s,opacity .3s}
 .cl-row img:hover{filter:none;opacity:1}
