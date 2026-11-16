@@ -398,3 +398,12 @@ html{scrollbar-color:#E8862A transparent;scrollbar-width:thin}
 
 .bk-scene:not(.s1) .bl.dash{opacity:0}
 .bc-iso .bl.dash{transition:opacity .8s var(--smooth)}
+
+/* real logo */
+.bk-logo img{width:64px;height:64px;border-radius:14px;box-shadow:0 5px 0 var(--or-d);animation:bkFlip .5s var(--spring) 1.9s both;transform-origin:50% 0}
+.ph-scr.load{background:#040606}
+.ph-scr.load .lg-i{width:120px;height:120px;border-radius:12px}
+.ph-scr.load small{color:#aaa}
+.ph-scr.load .lg-b{border-color:#fff}
+.cta-logo{width:clamp(96px,10vw,140px);height:auto;border-radius:18px;margin-bottom:28px;box-shadow:0 0 0 1.5px rgba(255,255,255,.18)}
+@media (max-width:640px){.bk-logo img{width:52px;height:52px;border-radius:12px}}
