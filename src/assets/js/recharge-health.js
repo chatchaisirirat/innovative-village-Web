@@ -220,7 +220,7 @@
     root.classList.add('cur-on');
     var lab = cursor.firstElementChild, tx = -100, ty = -100, mx = -100, my = -100, raf = null;
     function loop() {
-      tx += (mx - tx) * (reduce ? 1 : .35); ty += (my - ty) * (reduce ? 1 : .35);
+      tx += (mx - tx) * (reduce ? 1 : .5); ty += (my - ty) * (reduce ? 1 : .5);
       cursor.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)';
       raf = (Math.abs(mx - tx) + Math.abs(my - ty) > .3) ? requestAnimationFrame(loop) : null;
     }
@@ -229,7 +229,7 @@
       mx = e.clientX; my = e.clientY; if (!raf) raf = requestAnimationFrame(loop);
       var t = e.target.closest('[data-cur]');
       cursor.classList.toggle('big', !!t);
-      lab.textContent = t ? t.getAttribute('data-cur') : '';
+      if (t) lab.textContent = t.getAttribute('data-cur');
     });
     root.addEventListener('pointerleave', function () { mx = my = -100; if (!raf) raf = requestAnimationFrame(loop); });
   }

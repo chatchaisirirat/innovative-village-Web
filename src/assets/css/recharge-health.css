@@ -411,16 +411,12 @@
 .rx-slab .rx-btn.notch::after{background:var(--ink)}
 @media (max-width:960px){.rx-slab{grid-template-columns:1fr}}
 
-/* ---------- custom cursor ---------- */
+/* ---------- cursor tag (desktop): native cursor stays, a small label follows it over images/carousels ---------- */
 .rx-cursor{display:none}
 @media (hover:hover) and (pointer:fine){
-  .rx.cur-on .rx-cursor{display:block;position:fixed;left:0;top:0;z-index:90;pointer-events:none;transform:translate3d(-100px,-100px,0)}
-  .rx-cursor span{position:absolute;left:-11px;top:-11px;width:22px;height:22px;display:grid;place-items:center;font:700 11px/1 var(--f-m);letter-spacing:.1em;color:transparent;mix-blend-mode:difference;transition:width .25s var(--expo),height .25s var(--expo),left .25s var(--expo),top .25s var(--expo),background .2s}
-  .rx-cursor span::before,.rx-cursor span::after{content:"";position:absolute;background:#fff;left:50%;top:50%}
-  .rx-cursor span::before{width:22px;height:1.5px;margin:-.75px 0 0 -11px}
-  .rx-cursor span::after{width:1.5px;height:22px;margin:-11px 0 0 -.75px}
-  .rx-cursor.big span{left:-34px;top:-34px;width:68px;height:68px;background:#fff;color:var(--ink);mix-blend-mode:normal}
-  .rx-cursor.big span::before,.rx-cursor.big span::after{display:none}
+  .rx.cur-on .rx-cursor{display:block;position:fixed;left:0;top:0;z-index:90;pointer-events:none;transform:translate3d(-200px,-200px,0)}
+  .rx-cursor span{position:absolute;left:16px;top:18px;padding:6px 9px 5px;background:var(--red);color:#fff;font:700 11px/1 var(--f-m);letter-spacing:.14em;white-space:nowrap;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .2s var(--expo)}
+  .rx-cursor.big span{opacity:1;transform:none}
 }
 
 /* ---------- curtain + motion (only when JS runs & motion allowed) ---------- */
@@ -511,7 +507,6 @@
   .rx *,.rx *::before,.rx *::after{animation:none!important;transition:none!important}
   .rx-marq ul+ul{display:none}
 }
-@media (hover:hover) and (pointer:fine){.rx.cur-on,.rx.cur-on a,.rx.cur-on button,.rx.cur-on summary{cursor:none}}
 @media (max-width:860px){
   .rx-about,.rx-anat{grid-template-columns:minmax(0,1fr)}
   .rx-car-art{width:56%}
