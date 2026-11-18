@@ -209,3 +209,80 @@
     window.addEventListener('pageshow', function (e) { if (e.persisted) wipe.classList.remove('on'); });
   }
 })();
+
+/* ---------- orbit carousel: Villagers & Partners ---------- */
+(function () {
+  'use strict';
+  var orbit = document.getElementById('orbit');
+  if (!orbit) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = Array.prototype.slice.call(orbit.querySelectorAll('.orbit-it'));
+  var n = items.length, step = 360 / n, active = 0, angles = items.map(function (_, i) { return i * step; });
+  var card = document.getElementById('orbit-card'), dotsBox = document.getElementById('orbit-dots');
+  var img = document.getElementById('oc-img'), nm = document.getElementById('oc-name'), tg = document.getElementById('oc-tag'), ds = document.getElementById('oc-desc'), go = document.getElementById('oc-go');
+  var dots = items.map(function (it, i) {
+    var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', it.dataset.name);
+    b.addEventListener('click', function () { set(i); restart(); }); dotsBox.appendChild(b); return b;
+  });
+  var prog = document.createElement('span'); prog.className = 'orbit-prog'; prog.innerHTML = '<i></i>'; dotsBox.parentNode.appendChild(prog);
+  var bar = prog.firstChild;
+  function layout(first) {
+    items.forEach(function (it, i) {
+      var target = (i - active) * step, prev = angles[i];
+      // choose the equivalent angle closest to where the item is, so it travels the short way round
+      var k = Math.round((prev - target) / 360); target += k * 360;
+      angles[i] = target;
+      var dist = Math.min(Math.abs(i - active), n - Math.abs(i - active));
+      it.style.setProperty('--dl', first ? (i * 0.07) + 's' : (dist * 0.04) + 's');
+      it.style.setProperty('--a', target + 'deg');
+      it.classList.toggle('on', i === active);
+      it.querySelector('button').setAttribute('aria-current', i === active ? 'true' : 'false');
+    });
+    dots.forEach(function (d, i) { d.setAttribute('aria-current', i === active ? 'true' : 'false'); });
+  }
+  function fill() {
+    var it = items[active];
+    img.src = 'assets/img/partner/' + it.dataset.logo + '.png';
+    nm.textContent = it.dataset.name; tg.textContent = it.dataset.tag; ds.textContent = it.dataset.desc; go.href = it.dataset.href;
+    go.setAttribute('aria-label', 'ดู Portfolio ของ ' + it.dataset.name);
+  }
+  function set(i) {
+    i = (i + n) % n; if (i === active) return;
+    active = i; layout(false);
+    if (reduce) { fill(); return; }
+    card.classList.remove('enter'); card.classList.add('out');
+    setTimeout(function () { fill(); card.classList.remove('out'); void card.offsetWidth; card.classList.add('enter'); }, 220);
+  }
+  items.forEach(function (it, i) { it.querySelector('button').addEventListener('click', function () { set(i); restart(); }); });
+  document.getElementById('oc-prev').addEventListener('click', function () { set(active - 1); restart(); });
+  document.getElementById('oc-next').addEventListener('click', function () { set(active + 1); restart(); });
+  orbit.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { e.preventDefault(); set(active + 1); restart(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); set(active - 1); restart(); }
+  });
+  // auto-rotate every 5s; pauses on hover/focus and while off-screen
+  var timer = null, hover = false, visible = false;
+  function restart() {
+    clearTimeout(timer); bar.classList.remove('run'); void bar.offsetWidth;
+    if (reduce || hover || !visible || document.hidden) return;
+    bar.classList.add('run');
+    timer = setTimeout(function () { set(active + 1); restart(); }, 5000);
+  }
+  orbit.addEventListener('mouseenter', function () { hover = true; restart(); });
+  orbit.addEventListener('mouseleave', function () { hover = false; restart(); });
+  orbit.addEventListener('focusin', function () { hover = true; restart(); });
+  orbit.addEventListener('focusout', function () { hover = false; restart(); });
+  document.addEventListener('visibilitychange', restart);
+  // swipe on touch
+  var sx = null;
+  orbit.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  orbit.addEventListener('touchend', function (e) { if (sx == null) return; var d = e.changedTouches[0].clientX - sx; sx = null; if (Math.abs(d) > 40) { set(active + (d < 0 ? 1 : -1)); restart(); } });
+  layout(true);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      visible = es[0].isIntersecting;
+      if (visible) orbit.classList.add('hm-in');
+      restart();
+    }, { threshold: .3 }).observe(orbit);
+  } else { orbit.classList.add('hm-in'); visible = true; restart(); }
+})();

@@ -169,3 +169,59 @@
 .hm .logo-tile .nm{opacity:0;translate:0 8px}
 .hm .logo-tile.hm-in .nm{opacity:1;translate:0 0;transition:opacity .4s,translate .5s var(--hm-smooth),transform .3s var(--hm-smooth);transition-delay:calc(var(--d,0s) + .32s),calc(var(--d,0s) + .32s),0s}
 @media (max-width:520px){.home-page .grid:has(> .logo-tile){grid-template-columns:repeat(2,minmax(0,1fr))}.home-page .logo-tile{min-height:132px;gap:10px}.logo-tile .lg{width:56px;height:56px}.logo-tile .nm{font-size:14px}}
+
+/* ---------- orbit carousel: Villagers & Partners ---------- */
+.orbit-wrap{display:flex;flex-direction:column;align-items:center;gap:22px;padding-block:8px 0}
+.orbit{--R:210px;--av:86px;position:relative;width:calc(var(--R) * 2 + var(--av) + 24px);height:calc(var(--R) * 2 + var(--av) + 24px);max-width:100%;outline:none}
+.orbit:focus-visible{outline:2px solid var(--charcoal);outline-offset:6px}
+.orbit-ring{position:absolute;left:50%;top:50%;width:calc(var(--R) * 2);height:calc(var(--R) * 2);transform:translate(-50%,-50%);overflow:visible;pointer-events:none}
+.orbit-ring circle{fill:none;stroke:var(--gray);stroke-width:.25;stroke-dasharray:1 1.6;vector-effect:non-scaling-stroke}
+.orbit-items{margin:0;padding:0;list-style:none}
+.orbit-it{position:absolute;left:50%;top:50%;width:var(--av);height:var(--av);margin:calc(var(--av) / -2) 0 0 calc(var(--av) / -2);transform:rotate(var(--a,0deg)) translateY(calc(var(--R) * -1)) rotate(calc(var(--a,0deg) * -1));transition:transform .9s cubic-bezier(.34,1.3,.5,1);transition-delay:var(--dl,0s);z-index:2}
+.orbit-it.on{z-index:3}
+.orbit-av{display:block;width:100%;height:100%;padding:0;border:2px solid var(--gray);border-radius:50%;overflow:hidden;background:var(--white);cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1),border-color .25s,border-width .25s,box-shadow .3s}
+.orbit-av img{display:block;width:100%;height:100%;object-fit:cover}
+.orbit-av:hover{transform:scale(1.15);border-color:var(--lime);box-shadow:0 12px 24px -6px rgba(53,54,58,.3)}
+.orbit-av:active{transform:scale(.95)}
+.orbit-av:focus-visible{outline:2px solid var(--charcoal);outline-offset:3px}
+.orbit-it.on .orbit-av{border:4px solid var(--lime);box-shadow:0 10px 24px -6px rgba(53,54,58,.35)}
+.orbit-card{position:absolute;left:50%;top:50%;width:250px;transform:translate(-50%,-50%);z-index:4;background:var(--white);border:1px solid var(--light);border-top:4px solid var(--lime);box-shadow:0 18px 40px -12px rgba(53,54,58,.28);padding:0 18px 16px;text-align:center;font-family:var(--font-th)}
+.oc-in{display:flex;flex-direction:column;align-items:center;gap:6px}
+.oc-logo{display:block;width:76px;height:76px;margin-top:-40px;border-radius:50%;overflow:hidden;border:4px solid var(--white);box-shadow:0 6px 14px rgba(53,54,58,.2);background:var(--white)}
+.oc-logo img{display:block;width:100%;height:100%;object-fit:cover}
+.orbit-card h3{margin:6px 0 0;font-family:var(--font-en);font-size:19px;font-weight:700;letter-spacing:.01em;color:var(--charcoal);line-height:1.2}
+.oc-tag{margin:0;display:inline-block;background:var(--charcoal);color:var(--lime);font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px}
+.oc-desc{margin:4px 0 0;font-size:13.5px;font-weight:300;line-height:1.55;color:var(--muted);min-height:4.65em}
+.oc-ctl{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px}
+.oc-nav{display:grid;place-items:center;width:40px;height:40px;padding:0;border:2px solid var(--charcoal);background:var(--white);color:var(--charcoal);cursor:pointer;transition:background .2s,color .2s,transform .15s}
+.oc-nav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.oc-nav:hover{background:var(--charcoal);color:var(--lime)}
+#oc-prev:hover svg{transform:translateX(-3px)}#oc-next:hover svg{transform:translateX(3px)}
+.oc-nav:active{transform:scale(.92)}
+.home-page .oc-go{min-height:40px;padding:0 16px;font-size:15px}
+.oc-in>*{transition:opacity .25s,transform .35s cubic-bezier(.34,1.56,.64,1)}
+.orbit-card.out .oc-in>*{opacity:0;transform:translateY(-10px) scale(.96)}
+.orbit-card.enter .oc-in>*{animation:ocIn .5s cubic-bezier(.34,1.4,.64,1) both}
+.orbit-card.enter .oc-in>*:nth-child(2){animation-delay:.05s}.orbit-card.enter .oc-in>*:nth-child(3){animation-delay:.1s}.orbit-card.enter .oc-in>*:nth-child(4){animation-delay:.15s}
+@keyframes ocIn{from{opacity:0;transform:translateY(14px) scale(.94)}}
+.orbit-dots{display:flex;gap:8px}
+.orbit-dots button{width:10px;height:10px;padding:0;border:0;background:var(--gray);cursor:pointer;transition:background .2s,transform .2s cubic-bezier(.34,1.56,.64,1),width .3s}
+.orbit-dots button:hover{transform:scale(1.3)}
+.orbit-dots button[aria-current="true"]{background:var(--lime);width:26px}
+.orbit-prog{display:block;width:120px;height:2px;background:var(--light);overflow:hidden}
+.orbit-prog i{display:block;height:100%;background:var(--charcoal);transform-origin:0 50%;transform:scaleX(0)}
+.orbit-prog i.run{animation:orbProg 5s linear forwards}
+@keyframes orbProg{to{transform:scaleX(1)}}
+@media (max-width:768px){.orbit{--R:158px;--av:64px}.orbit-card{width:220px}}
+@media (max-width:480px){.orbit{--R:126px;--av:50px}.orbit-card{width:186px;padding:0 12px 12px}.oc-logo{width:60px;height:60px;margin-top:-32px}.orbit-card h3{font-size:16px}.oc-desc{font-size:12.5px;-webkit-line-clamp:3;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;min-height:0}.oc-nav{width:34px;height:34px}.home-page .oc-go{padding:0 10px;font-size:13px;min-height:34px}}
+@media (max-width:360px){.orbit{--R:112px;--av:44px}}
+/* entrance */
+.hm .orbit .orbit-it{opacity:0}
+.hm .orbit.hm-in .orbit-it{opacity:1;transition:transform .9s cubic-bezier(.34,1.3,.5,1),opacity .4s;transition-delay:var(--dl,0s)}
+.hm .orbit .orbit-ring{opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(-90deg)}
+.hm .orbit.hm-in .orbit-ring{opacity:1;transform:translate(-50%,-50%);transition:opacity .6s,transform 1.2s cubic-bezier(.22,1,.36,1)}
+.hm .orbit .orbit-card{opacity:0;transform:translate(-50%,-40%) scale(.9)}
+.hm .orbit.hm-in .orbit-card{opacity:1;transform:translate(-50%,-50%);transition:opacity .5s .2s,transform .7s cubic-bezier(.34,1.4,.64,1) .2s}
+@media (prefers-reduced-motion:reduce){.orbit-it,.orbit-av{transition:none}}
+.home-page .oc-go{white-space:nowrap}
+@media (max-width:480px){.oc-logo,.oc-desc{display:none}.orbit-card{width:164px;padding:14px 10px 12px}.oc-ctl{gap:6px;margin-top:10px}.orbit-card h3{margin-top:0}}
