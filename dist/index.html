@@ -198,24 +198,87 @@
 </section>
 
 <!-- FACILITIES -->
-<section style="padding:96px 0 0">
+<section class="fx-sec">
   <div class="container stack" style="gap:40px">
     <div class="head">
       <p class="eyebrow">FACILITIES</p>
       <h2 class="h2">EVERYTHING WITHIN THE VILLAGE</h2>
       <p class="sub">{ สิ่งอำนวยความสะดวกในหมู่บ้าน }</p>
     </div>
-    <div class="grid g-160">
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M5 12h18v8a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"></path><path d="M23 14h2a3 3 0 0 1 0 6h-2M10 4v4M15 4v4"></path></svg><b>Café</b><span>ชั้น 1 Lounge</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M9 4v24M5 4v7a4 4 0 0 0 8 0V4M23 28V4c-3 0-5 4-5 10h5"></path></svg><b>Canteen</b><span>โรงอาหาร</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><circle cx="16" cy="17" r="9"></circle><path d="M16 12v10M11 17h10"></path></svg><b>Dining Room</b><span>ห้องรับประทานอาหาร</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M6 6h8a2 2 0 0 1 2 2v19a2 2 0 0 0-2-2H6zM26 6h-8a2 2 0 0 0-2 2v19a2 2 0 0 1 2-2h8z"></path></svg><b>Library</b><span>Café ชั้น 2</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="2"></rect><path d="M13 23V10h5a4 4 0 0 1 0 8h-5"></path></svg><b>Parking</b><span>ที่จอดรถ</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M16 29V18"></path><path d="M16 3l-9 13h18z"></path><path d="M4 29h24"></path></svg><b>Outdoor</b><span>A3–A4</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M6 12h20l-2 15H8z"></path><path d="M11 12a5 5 0 0 1 10 0"></path></svg><b>Minimart</b><span>C3</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><path d="M5 22c4-1 8-1 11 1s8 2 11 0"></path><circle cx="9" cy="14" r="3"></circle><path d="M13 17h13"></path></svg><b>Massage</b><span>C7</span></div>
-      <div class="fac"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#35363a" stroke-width="2" aria-hidden="true"><circle cx="16" cy="6" r="3"></circle><path d="M16 9v10M8 13l8 2 8-2M11 28l5-9 5 9"></path></svg><b>Pilates</b><span>C12</span></div>
-    </div>
+    <ul class="fx-gal" id="fx-gal" aria-label="สิ่งอำนวยความสะดวก 9 อย่าง">
+      <li class="fx on" style="--i:0"><button type="button" class="fx-b" aria-expanded="true" aria-label="Café — คาเฟ่ · ชั้น 1 Lounge">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Café]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">01<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Café</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h18v8a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"></path><path d="M23 14h2a3 3 0 0 1 0 6h-2M10 4v4M15 4v4"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Café</b><span>คาเฟ่ · ชั้น 1 Lounge</span></span>
+      </button></li>
+      <li class="fx" style="--i:1"><button type="button" class="fx-b" aria-expanded="false" aria-label="Canteen — โรงอาหาร">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Canteen]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">02<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Canteen</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 4v24M5 4v7a4 4 0 0 0 8 0V4M23 28V4c-3 0-5 4-5 10h5"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Canteen</b><span>โรงอาหาร</span></span>
+      </button></li>
+      <li class="fx" style="--i:2"><button type="button" class="fx-b" aria-expanded="false" aria-label="Dining Room — ห้องรับประทานอาหาร">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Dining Room]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">03<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Dining Room</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="17" r="9"></circle><path d="M16 12v10M11 17h10"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Dining Room</b><span>ห้องรับประทานอาหาร</span></span>
+      </button></li>
+      <li class="fx" style="--i:3"><button type="button" class="fx-b" aria-expanded="false" aria-label="Library — ห้องสมุด · Café ชั้น 2">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Library]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">04<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Library</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6h8a2 2 0 0 1 2 2v19a2 2 0 0 0-2-2H6zM26 6h-8a2 2 0 0 0-2 2v19a2 2 0 0 1 2-2h8z"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Library</b><span>ห้องสมุด · Café ชั้น 2</span></span>
+      </button></li>
+      <li class="fx" style="--i:4"><button type="button" class="fx-b" aria-expanded="false" aria-label="Parking — ที่จอดรถ">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Parking]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">05<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Parking</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="2"></rect><path d="M13 23V10h5a4 4 0 0 1 0 8h-5"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Parking</b><span>ที่จอดรถ</span></span>
+      </button></li>
+      <li class="fx" style="--i:5"><button type="button" class="fx-b" aria-expanded="false" aria-label="Outdoor — ลานกิจกรรมกลางแจ้ง · A3–A4">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Outdoor]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">06<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Outdoor</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 29V18"></path><path d="M16 3l-9 13h18z"></path><path d="M4 29h24"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Outdoor</b><span>ลานกิจกรรมกลางแจ้ง · A3–A4</span></span>
+      </button></li>
+      <li class="fx" style="--i:6"><button type="button" class="fx-b" aria-expanded="false" aria-label="Minimart — มินิมาร์ท · C3">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Minimart]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">07<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Minimart</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 12h20l-2 15H8z"></path><path d="M11 12a5 5 0 0 1 10 0"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Minimart</b><span>มินิมาร์ท · C3</span></span>
+      </button></li>
+      <li class="fx" style="--i:7"><button type="button" class="fx-b" aria-expanded="false" aria-label="Massage — นวดผ่อนคลาย · C7">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Massage]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">08<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Massage</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 22c4-1 8-1 11 1s8 2 11 0"></path><circle cx="9" cy="14" r="3"></circle><path d="M13 17h13"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Massage</b><span>นวดผ่อนคลาย · C7</span></span>
+      </button></li>
+      <li class="fx" style="--i:8"><button type="button" class="fx-b" aria-expanded="false" aria-label="Pilates — พิลาทิส · C12">
+        <span class="fx-ph" aria-hidden="true"><span class="fx-ph-t">[ภาพ Pilates]</span></span>
+        <span class="fx-shade" aria-hidden="true"></span>
+        <span class="fx-no" aria-hidden="true">09<i>/09</i></span>
+        <span class="fx-v" aria-hidden="true">Pilates</span>
+        <span class="fx-ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="16" cy="6" r="3"></circle><path d="M16 9v10M8 13l8 2 8-2M11 28l5-9 5 9"></path></svg></span>
+        <span class="fx-cap" aria-hidden="true"><b>Pilates</b><span>พิลาทิส · C12</span></span>
+      </button></li>
+    </ul>
   </div>
 </section>
 
