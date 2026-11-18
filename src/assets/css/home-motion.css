@@ -384,3 +384,14 @@
 .tk:nth-child(2) .tk-pic{width:44%;right:-4%}
 .tk:nth-child(3) .tk-pic{width:54%;height:84%}
 @media (prefers-reduced-motion:reduce){.tk-pic,.tk-pic img{transition:none!important}}
+
+/* ---------- SPACES: framed cards ---------- */
+.home-page .space-card{background:var(--white);border-radius:24px;padding:12px;box-shadow:0 1px 3px rgba(53,54,58,.08),0 10px 26px rgba(53,54,58,.11);transition:transform .45s var(--hm-smooth),box-shadow .45s}
+.home-page .space-card:hover{transform:translateY(-4px);box-shadow:0 2px 6px rgba(53,54,58,.08),0 18px 38px rgba(53,54,58,.16)}
+.home-page .space-card .deck,.home-page .space-card .ph{border-radius:16px}
+.home-page .space-card .deck .card-photo{border-radius:16px}
+.home-page .space-card .deck.fan .card-photo{border-radius:10px}
+@media (hover:hover){.home-page .space-card .deck:hover .card-photo{border-radius:10px}}
+.home-page .space-card .ph{border-bottom:0}
+.home-page .space-card .in{padding:18px 10px 10px}
+@media (max-width:480px){.home-page .space-card{border-radius:20px;padding:10px}.home-page .space-card .deck,.home-page .space-card .ph,.home-page .space-card .deck .card-photo{border-radius:14px}}
