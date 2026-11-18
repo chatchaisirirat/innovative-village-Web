@@ -242,10 +242,14 @@
 .fx-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%)}
 .fx.on .fx-ph{transform:none}
 .fx-ph.has-img{background:#c9c8c5}
-.fx-ph img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;filter:saturate(.85) brightness(.92);transition:filter .6s}
-.fx.on .fx-ph img{filter:none}
-.fx-ph.has-img~.fx-shade{opacity:.6}
-.fx.on .fx-ph.has-img~.fx-shade{opacity:1}
+.fx-ph img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;filter:saturate(.8) brightness(.9) contrast(1.02);transition:filter .6s}
+.fx.on .fx-ph img{filter:saturate(.95) contrast(1.04)}
+/* photos get the same top-light / bottom-dark depth as the grey panels */
+.fx-ph.has-img~.fx-shade{inset:0;height:auto;opacity:1;background:
+  linear-gradient(to bottom,rgba(53,54,58,.28) 0%,rgba(53,54,58,0) 22%,rgba(53,54,58,.08) 45%,rgba(53,54,58,.5) 75%,rgba(28,29,32,.86) 100%);
+  box-shadow:inset 0 0 60px rgba(28,29,32,.28)}
+.fx-ph.has-img~.fx-shade::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(53,54,58,0) 30%,rgba(53,54,58,.35) 100%);opacity:1;transition:opacity .6s}
+.fx.on .fx-ph.has-img~.fx-shade::after{opacity:0}
 .fx-ph.has-img~.fx-no{color:var(--white);text-shadow:0 1px 6px rgba(0,0,0,.45)}.fx-ph.has-img~.fx-no i{color:rgba(255,255,255,.75)}
 .fx.on .fx-ph::after{animation:fxShine 1.1s var(--hm-smooth) .15s}
 @keyframes fxShine{to{transform:translateX(120%)}}
