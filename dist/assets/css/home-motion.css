@@ -300,7 +300,7 @@
 .tk:hover{color:var(--ink)}
 .tk-dark{--tb:var(--charcoal);--s1:#55575d;--s2:#bcd732;--s3:#45474c;--ink:#f1f1ee;--yr:rgba(188,215,50,.28);--perf:rgba(236,235,233,.4);--grain:.6}
 .tk-light{--tb:#ecebe9;--s1:#ffffff;--s2:#bcd732;--s3:#dad9d5;--yr:rgba(188,215,50,.38);--grain:.36}
-.tk-in{position:relative;display:flex;aspect-ratio:1.72/1;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .8s var(--hm-spring),filter .4s;filter:drop-shadow(0 16px 22px rgba(53,54,58,.2))}
+.tk-in{position:relative;display:flex;aspect-ratio:1.62/1;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .8s var(--hm-spring),filter .4s;filter:drop-shadow(0 16px 22px rgba(53,54,58,.2))}
 .tk.live .tk-in{transition:transform .14s ease-out,filter .4s}
 .tk:hover .tk-in{filter:drop-shadow(0 26px 30px rgba(53,54,58,.28))}
 .tk:focus-visible{outline:none}
@@ -334,9 +334,11 @@
 /* text */
 .tk-txt{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:9% 7% 8% 9%;font-family:var(--font-th)}
 .tk-k{font-family:var(--font-en);font-size:11px;font-size:3.05cqi;font-weight:600;letter-spacing:.06em;line-height:1.45;text-transform:uppercase}
-.tk-t{font-size:30px;font-size:8.2cqi;font-weight:500;line-height:1.08;letter-spacing:-.01em;transition:transform .5s var(--hm-smooth)}
+.tk-mid{display:flex;flex-direction:column;gap:.5em}
+.tk-s{font-family:var(--font-en);font-size:12px;font-size:3.3cqi;font-weight:600;line-height:1.3}
+.tk-t{font-family:var(--font-en);font-size:28px;font-size:7.6cqi;font-weight:700;line-height:1.05;letter-spacing:-.015em;transition:transform .5s var(--hm-smooth)}
 .tk-f{font-family:var(--font-en);font-size:12px;font-size:3.3cqi;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.tk-dark .tk-k{color:var(--lime)}
+.tk-dark .tk-k,.tk-dark .tk-s{color:var(--lime)}
 .tk:hover .tk-t{transform:translateX(4px)}
 .tk-yr,.tk-ad{position:absolute;top:50%;left:50%;writing-mode:vertical-rl;white-space:nowrap;font-family:var(--font-en);line-height:1;z-index:1}
 .tk-yr{font-size:58px;font-size:15.5cqw;font-weight:800;color:var(--yr);transform:translate(calc(-50% + var(--px,0px) * -1.6),calc(-50% + var(--py,0px) * -1.6));transition:transform .8s var(--hm-smooth)}
