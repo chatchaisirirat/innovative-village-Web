@@ -321,3 +321,39 @@
     io.observe(gal);
   } else gal.classList.add('fx-in');
 })();
+
+/* ---------- NEWS & ACTIVITIES: ticket tilt + entrance ---------- */
+(function () {
+  var grid = document.querySelector('.tk-grid');
+  if (!grid) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (fine && !reduce) {
+    Array.prototype.forEach.call(grid.querySelectorAll('.tk'), function (t) {
+      var raf = null, ev = null;
+      function apply() {
+        raf = null;
+        var r = t.getBoundingClientRect(), nx = (ev.clientX - r.left) / r.width - .5, ny = (ev.clientY - r.top) / r.height - .5;
+        t.style.setProperty('--ry', (nx * 16).toFixed(2) + 'deg');
+        t.style.setProperty('--rx', (-ny * 12).toFixed(2) + 'deg');
+        t.style.setProperty('--px', (nx * -16).toFixed(1) + 'px');
+        t.style.setProperty('--py', (ny * -12).toFixed(1) + 'px');
+        t.style.setProperty('--gx', ((nx + .5) * 100).toFixed(1) + '%');
+        t.style.setProperty('--gy', ((ny + .5) * 100).toFixed(1) + '%');
+      }
+      t.addEventListener('pointerenter', function () { t.classList.add('live'); });
+      t.addEventListener('pointermove', function (e) { ev = e; if (!raf) raf = requestAnimationFrame(apply); });
+      t.addEventListener('pointerleave', function () {
+        t.classList.remove('live');
+        ['--rx', '--ry', '--px', '--py'].forEach(function (k) { t.style.removeProperty(k); });
+      });
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      grid.classList.add('tk-on'); io.disconnect();
+    }, { threshold: .2 });
+    io.observe(grid);
+  } else grid.classList.add('tk-on');
+})();

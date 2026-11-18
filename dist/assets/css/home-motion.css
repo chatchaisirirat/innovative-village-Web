@@ -292,3 +292,73 @@
   .fx.on .fx-ph::after{animation:none}
   .hm .fx-gal .fx-b{clip-path:none}
 }
+
+/* ---------- NEWS & ACTIVITIES: admit-one tickets ---------- */
+.tk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding-block:20px;margin-block:-20px}
+.tk{--tb:var(--lime);--s1:#e4eea2;--s2:#f6f8e6;--s3:#a9c21f;--ink:var(--charcoal);--yr:rgba(255,255,255,.62);--perf:rgba(53,54,58,.45);--grain:.42;
+  display:block;min-width:0;perspective:1000px;color:var(--ink);text-decoration:none;container-type:inline-size;-webkit-tap-highlight-color:transparent}
+.tk:hover{color:var(--ink)}
+.tk-dark{--tb:var(--charcoal);--s1:#55575d;--s2:#bcd732;--s3:#45474c;--ink:#f1f1ee;--yr:rgba(188,215,50,.28);--perf:rgba(236,235,233,.4);--grain:.6}
+.tk-light{--tb:#ecebe9;--s1:#ffffff;--s2:#bcd732;--s3:#dad9d5;--yr:rgba(188,215,50,.38);--grain:.36}
+.tk-in{position:relative;display:flex;aspect-ratio:1.72/1;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .8s var(--hm-spring),filter .4s;filter:drop-shadow(0 16px 22px rgba(53,54,58,.2))}
+.tk.live .tk-in{transition:transform .14s ease-out,filter .4s}
+.tk:hover .tk-in{filter:drop-shadow(0 26px 30px rgba(53,54,58,.28))}
+.tk:focus-visible{outline:none}
+.tk:focus-visible .tk-in{outline:3px solid var(--lime);outline-offset:6px}
+/* the two parts: each has scooped corners, together they make the side notches */
+.tk-main,.tk-stub{--r:14px;position:relative;overflow:hidden;
+  -webkit-mask:radial-gradient(circle at 0 0,#0000 var(--r),#000 calc(var(--r) + .5px)) 0 0/51% 51% no-repeat,radial-gradient(circle at 100% 0,#0000 var(--r),#000 calc(var(--r) + .5px)) 100% 0/51% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 var(--r),#000 calc(var(--r) + .5px)) 0 100%/51% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 var(--r),#000 calc(var(--r) + .5px)) 100% 100%/51% 51% no-repeat;
+          mask:radial-gradient(circle at 0 0,#0000 var(--r),#000 calc(var(--r) + .5px)) 0 0/51% 51% no-repeat,radial-gradient(circle at 100% 0,#0000 var(--r),#000 calc(var(--r) + .5px)) 100% 0/51% 51% no-repeat,radial-gradient(circle at 0 100%,#0000 var(--r),#000 calc(var(--r) + .5px)) 0 100%/51% 51% no-repeat,radial-gradient(circle at 100% 100%,#0000 var(--r),#000 calc(var(--r) + .5px)) 100% 100%/51% 51% no-repeat}
+.tk-main{flex:0 0 79%}
+.tk-stub{flex:0 0 21%;transform-origin:0 100%;transition:transform .6s var(--hm-spring)}
+.tk:hover .tk-stub{transform:translateX(4px) rotate(2.2deg)}
+.tk-stub::before{content:"";position:absolute;left:0;top:18px;bottom:18px;border-left:2px dashed var(--perf);z-index:2}
+/* flowing grainy swirl (spans the whole ticket in both parts so it lines up) */
+.tk-art{position:absolute;top:0;bottom:0;left:0;width:calc(100% / .79);overflow:hidden;background:var(--tb);transform:translate(var(--px,0px),var(--py,0px)) scale(1.06);transition:transform .8s var(--hm-smooth)}
+.tk.live .tk-art{transition:transform .2s ease-out}
+.tk-stub .tk-art{left:auto;right:0;width:calc(100% / .21)}
+.tk-art i{position:absolute;display:block;border-radius:50%;filter:blur(20px);will-change:transform}
+.tk-art .a{width:62%;height:150%;left:16%;top:-70%;background:var(--s1);animation:tkA 13s ease-in-out infinite alternate}
+.tk-art .b{width:40%;height:120%;left:60%;top:22%;background:var(--s2);opacity:.85;animation:tkB 10s ease-in-out infinite alternate}
+.tk-art .c{width:95%;height:26%;left:-12%;top:58%;background:var(--s1);filter:blur(14px);transform:rotate(-26deg);animation:tkC 15s ease-in-out infinite alternate}
+.tk-dark .tk-art .b{opacity:.55}
+.tk-art .ln{position:absolute;inset:0;width:79%;height:100%;fill:none;stroke:var(--s2);stroke-width:2.5;vector-effect:non-scaling-stroke;opacity:.75;animation:tkL 9s ease-in-out infinite alternate}
+.tk-art::after{content:"";position:absolute;inset:0;opacity:var(--grain);mix-blend-mode:multiply;background-size:180px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .2 0 0 0 0 .22 1.6 0 0 0 -.62'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.tk-dark .tk-art::after{mix-blend-mode:screen;filter:invert(1)}
+.tk:hover .tk-art i,.tk:hover .tk-art .ln{animation-duration:4s}
+@keyframes tkA{0%{transform:translate(0,0) rotate(0deg) scale(1)}100%{transform:translate(18%,22%) rotate(38deg) scale(1.15)}}
+@keyframes tkB{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-30%,-18%) scale(1.25)}}
+@keyframes tkC{0%{transform:rotate(-26deg) translate(0,0)}100%{transform:rotate(-14deg) translate(14%,-30%)}}
+@keyframes tkL{0%{transform:translate(0,0)}100%{transform:translate(8%,-10%)}}
+/* text */
+.tk-txt{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:9% 7% 8% 9%;font-family:var(--font-th)}
+.tk-k{font-family:var(--font-en);font-size:11px;font-size:3.05cqi;font-weight:600;letter-spacing:.06em;line-height:1.45;text-transform:uppercase}
+.tk-t{font-size:30px;font-size:8.2cqi;font-weight:500;line-height:1.08;letter-spacing:-.01em;transition:transform .5s var(--hm-smooth)}
+.tk-f{font-family:var(--font-en);font-size:12px;font-size:3.3cqi;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.tk-dark .tk-k{color:var(--lime)}
+.tk:hover .tk-t{transform:translateX(4px)}
+.tk-yr,.tk-ad{position:absolute;top:50%;left:50%;writing-mode:vertical-rl;white-space:nowrap;font-family:var(--font-en);line-height:1;z-index:1}
+.tk-yr{font-size:58px;font-size:15.5cqw;font-weight:800;color:var(--yr);transform:translate(calc(-50% + var(--px,0px) * -1.6),calc(-50% + var(--py,0px) * -1.6));transition:transform .8s var(--hm-smooth)}
+.tk.live .tk-yr{transition:transform .2s ease-out}
+.tk-ad{font-size:26px;font-size:7cqw;font-weight:600;letter-spacing:.04em;color:var(--ink);transform:translate(-42%,-50%)}
+.tk-dark .tk-ad{color:var(--lime)}
+.tk-glare{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:0;transition:opacity .35s;mix-blend-mode:soft-light;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.75),rgba(255,255,255,0) 46%)}
+.tk:hover .tk-glare{opacity:1}
+/* entrance: tickets are dealt in, one after another */
+.hm .tk-grid .tk{opacity:0;transform:translateY(46px) rotate(-5deg)}
+.hm .tk-grid.tk-on .tk{opacity:1;transform:none;transition:opacity .5s,transform .9s var(--hm-spring);transition-delay:calc(var(--i) * 120ms)}
+/* touch: gentle idle sway instead of pointer tilt */
+@media (hover:none){.tk-in{animation:tkSway 6s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -2s)}}
+@keyframes tkSway{0%{transform:rotateX(4deg) rotateY(-6deg)}100%{transform:rotateX(-3deg) rotateY(6deg)}}
+/* tablet + phone: swipeable row */
+@media (max-width:1024px){
+  .tk-grid{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:24px max(16px,env(safe-area-inset-left,0px)) 28px;margin:-24px calc(-1 * max(16px,env(safe-area-inset-left,0px))) -28px}
+  .tk-grid::-webkit-scrollbar{display:none}
+  .tk{flex:0 0 min(440px,72%);scroll-snap-align:center}
+}
+@media (max-width:560px){.tk{flex-basis:88%}.tk-main,.tk-stub{--r:11px}.tk-stub::before{top:14px;bottom:14px}}
+@media (prefers-reduced-motion:reduce){
+  .tk-art i,.tk-art .ln,.tk-in{animation:none!important}
+  .tk-in,.tk-stub,.tk-art,.tk-yr,.tk-t{transition:none!important}
+}
